@@ -27,7 +27,9 @@
         <mat-icon aria-label="notification icon">notifications</mat-icon>
       </li>
       <li class="user-menu-item">
-        <mat-icon aria-label="settings icon">settings</mat-icon>
+        <button mat-icon-button (click)="goToConfigurations()">
+          <mat-icon>settings</mat-icon>
+        </button>
       </li>
       <li class="user-menu-item">
         <button mat-icon-button (click)="goToAccount()">
