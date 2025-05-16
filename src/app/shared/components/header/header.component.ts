@@ -24,5 +24,4 @@ export class HeaderComponent {
     console.log('Click Detectado');
     this.router.navigate(['/account']);
   }
-
 }
