@@ -1,0 +1,60 @@
+.configurations-container {
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #1e1e1e;
+  color: white;
+  height: 64px; /* For alignment */
+}
+.close-button {
+  color: white;
+}
+
+.right {
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: #f3f3f3; /* <- este tono gris claro lo tenía la imagen original */
+  overflow-y: auto;
+}
+
+
+.configurations-content {
+  display: flex;
+  height: calc(100vh - 64px); /* Resta el alto del header */
+}
+
+.left {
+  width: 240px;
+  background-color: #e0e0e0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.left button {
+  width: 100%;
+  text-align: left;
+  background-color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.left button.active {
+  background-color: #c5e1a5;
+}
+
+.right {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}

@@ -19,4 +19,8 @@ main{
   display: flex;
   align-items: center;
 }
+.cdk-overlay-pane {
+  z-index: 1000 !important;
+}
+
 

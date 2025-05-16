@@ -24,4 +24,7 @@ export class HeaderComponent {
     console.log('Click Detectado');
     this.router.navigate(['/account']);
   }
+  goToConfigurations(): void {
+    this.router.navigate(['/configurations']);
+  }
 }
