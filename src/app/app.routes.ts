@@ -13,6 +13,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   {path: 'tasks', component: TasksComponent},
+  {path: 'task-details/:id', component: TaskDetailsComponent},
   ...accountRoutes,
   { path: '**', redirectTo: '' },
   {path: 'account', component: AccountComponent},
