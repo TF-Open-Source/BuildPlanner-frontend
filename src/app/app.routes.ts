@@ -12,8 +12,8 @@ export const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
+  {path: 'tasks', component: TasksComponent},
   ...accountRoutes,
   { path: '**', redirectTo: '' },
   {path: 'account', component: AccountComponent},
-  {path: 'tasks', component: TasksComponent},
 ];
