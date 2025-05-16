@@ -1,0 +1,29 @@
+{
+  "CONFIG": {
+    "TITLE": "Configurations",
+    "NOTIFICATIONS": "Enable notifications",
+    "NOTIF.OPTIONS": {
+      "MSG": "Receive message notifications",
+      "UPDATES": "Receive update notifications",
+      "EMAIL": "Receive email notifications",
+      "HIRING": "Receive hiring alerts",
+      "OFFERS": "Receive equipment offers"
+    },
+    "PRIVACY.TITLE": "Privacy Settings",
+    "PRIVACY.TEXT": "You can control the visibility of your personal information and activity on the platform.",
+    "LANGREGION.TITLE": "Language & Region",
+    "LANGREGION.LANGUAGE": "Preferred Language",
+    "LANGREGION.TIMEZONE": "Timezone",
+    "TERMS.TITLE": "Terms and Conditions",
+    "TERMS.TEXT": "By using this platform, you agree to follow the terms and conditions outlined...",
+    "POLICY.TITLE": "Privacy Policy",
+    "POLICY.TEXT": "This policy explains how we collect and manage your personal data...",
+    "INFO.TITLE": "Application Info",
+    "INFO.NAME": "Name",
+    "INFO.VERSION": "Version",
+    "INFO.LAST_UPDATED": "Last updated",
+    "INFO.DEV": "Developed by",
+    "INFO.CONTACT": "Contact",
+    "INFO.LICENSE": "License"
+  }
+}

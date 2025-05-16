@@ -1,0 +1,25 @@
+<h3>Idioma y Región</h3>
+
+<div class="row">
+  <div class="column">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Idioma preferido</mat-label>
+      <mat-select [(ngModel)]="selectedLanguage">
+        <mat-option *ngFor="let lang of languages" [value]="lang.code">
+          {{ lang.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="column">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Zona horaria</mat-label>
+      <mat-select [(ngModel)]="selectedTimezone">
+        <mat-option *ngFor="let zone of timezones" [value]="zone">
+          {{ zone }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
