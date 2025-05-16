@@ -13,7 +13,7 @@ import {TaskDetailsComponent} from './shared/components/task-details/task-detail
 
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: HomeComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   {path: 'tasks', component: TasksComponent},
