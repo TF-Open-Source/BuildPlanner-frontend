@@ -1,0 +1,25 @@
+<section class="task-details-container">
+  <h1 class="page-title">Inicio &gt; Tareas &gt; Descripción</h1>
+
+  <div class="task-info">
+    <div><strong>N°</strong></div>
+    <div>{{ tarea.id }}</div>
+
+    <div><strong>Tarea</strong></div>
+    <div>{{ tarea.nombre }}</div>
+
+    <div><strong>Descripción de tarea</strong></div>
+    <div class="description-content">{{ tarea.descripcion }}</div>
+
+    <div><strong>Fecha de inicio</strong></div>
+    <div>{{ tarea.fechaInicio }}</div>
+
+    <div><strong>Fecha de fin</strong></div>
+    <div>{{ tarea.fechaLimite }}</div>
+
+    <div><strong>Prioridad</strong></div>
+    <div>{{ tarea.prioridad }}</div>
+  </div>
+
+  <button class="back-button" routerLink="/tasks">Regresar</button>
+</section>

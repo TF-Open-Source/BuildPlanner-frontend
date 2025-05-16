@@ -1,0 +1,120 @@
+:root {
+  --bg-color: #FFFFFF;
+  --text-color: #1A1A1A;
+  --red: #C41E3A;
+  --blue: #004E7C;
+  --yellow: #FFD700;
+}
+
+/* Título de la página (Inicio > Tareas) */
+.page-title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-weight: normal;
+  font-size: 36px;
+  color: var(--text-color);
+}
+
+/* Contenedor principal que centra toda la sección de tareas */
+.tasks-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 240px;
+}
+
+/* Contenedor interno que limita el ancho de la tabla */
+.tasks-content {
+  width: 100%;
+  max-width: 1150px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: var(--bg-color);
+}
+
+/* Estilo del título h1 */
+h1 {
+  margin-bottom: 16px;
+  font-weight: normal;
+  font-size: 36px;
+  color: var(--text-color);
+}
+
+/* Barra superior con texto "Ordenar por" e íconos */
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+.sort-label {
+  font-size: 24px;
+}
+
+/* Tabla completa */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Cuerpo y cabecera */
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 24px;
+  color: var(--text-color);
+}
+/* Fila hover */
+tr:hover {
+  background-color: var(--yellow); /* Amarillo claro */
+}
+
+/* Fila del encabezado de la tabla */
+.mat-header-row {
+  background-color: var(--yellow) !important;
+  color: var(--text-color) !important;
+  font-weight: bold;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+}
+
+/* Celda del encabezado */
+.mat-header-cell {
+  background-color: var(--yellow) !important;
+  color: var(--text-color) !important;
+  font-size: 24px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Evita que el encabezado cambie al pasar el mouse */
+.mat-header-cell:hover {
+  background-color: var(--yellow) !important;
+  color: var(--text-color) !important;
+}
+
+/* Fila de cada tarea */
+.mat-row {
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+/* Íconos */
+button mat-icon {
+  color: var(--blue);
+}
+
+/* Select */
+select {
+  font-size: 20px;
+  padding: 4px;
+  border: 1px solid #004E7C;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #1A1A1A;
+}
