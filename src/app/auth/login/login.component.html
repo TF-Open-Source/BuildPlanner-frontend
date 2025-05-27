@@ -1,14 +1,14 @@
 <div class="container">
   <div class="card">
-    <h2 class="card-title">Iniciar Sesión</h2>
+    <h2 class="card-title">{{ 'LOGIN' | translate }}</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
       <!-- Email Field -->
       <mat-form-field appearance="outline" class="w-full">
-        <mat-label>Correo Electrónico</mat-label>
+        <mat-label>{{'EMAIL'| translate}}</mat-label>
         <input matInput type="email" formControlName="email" placeholder="tu@correo.com" required>
         <mat-icon matPrefix class="text-gray-500">email</mat-icon>
         <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">
-          El correo es obligatorio
+          {{ 'EMAIL' | translate }} {{ 'REQUIRED_ERROR' | translate }}
         </mat-error>
         <mat-error *ngIf="loginForm.get('email')?.errors?.['email']">
           Ingresa un correo válido
@@ -17,13 +17,13 @@
 
       <!-- Password Field -->
       <mat-form-field appearance="outline" class="w-full">
-        <mat-label>Contraseña</mat-label>
+        <mat-label>{{ 'PASSWORD' | translate }}</mat-label>
         <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
         <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
           <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>
         <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
-          La contraseña es obligatoria
+          {{ 'PASSWORD' | translate }} {{ 'REQUIRED_ERROR' | translate }}
         </mat-error>
         <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">
           La contraseña debe tener al menos 8 caracteres
@@ -34,18 +34,17 @@
       <div class="rem-forg form-inline flex items-center justify-between mb-4">
         <div>
           <input type="checkbox" name="remember" id="remember">
-          <label for="remember" class="text-muted ml-2">Remember me</label>
+          <label for="remember" class="text-muted ml-2">{{'REMEMBER'|translate}}</label>
         </div>
         <a href="/forgot-password" id="forgot" class="link font-weight-bold text-blue-600 hover:underline">
-          Forgot password?
+          {{ 'FORGOT' | translate }}
         </a>
       </div>
-
 
       <!-- Submit Button -->
       <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading"
               class="button-class">
-        <span *ngIf="!isLoading">Iniciar Sesión</span>
+        <span *ngIf="!isLoading">{{ 'LOGIN' | translate }}</span>
         <mat-spinner *ngIf="isLoading" diameter="24" class="spinner"></mat-spinner>
       </button>
 
@@ -53,9 +52,9 @@
 
     <!-- register Link -->
     <div class="link-container">
-        Don't have an account?
-      <a routerLink = "/register" class="link">
-        Sign up
+      {{'DONT_ALREADY_HAVE_ACCOUNT' | translate}}
+      <a routerLink = "/auth/register" class="link">
+        {{ 'REGISTER'  | translate }}
       </a>
     </div>
 

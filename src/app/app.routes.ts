@@ -10,16 +10,26 @@ import { configurationsRoutes } from './features/components/configurations/confi
 
 import {TasksComponent} from './shared/components/tasks/tasks.component';
 import {TaskDetailsComponent} from './shared/components/task-details/task-details.component';
+import {AuthLayoutComponent} from './auth/auth-layout/auth-layout.component';
+import {AppComponent} from './app.component';
 
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
-  {path: 'tasks', component: TasksComponent},
-  {path: 'task-details/:id', component: TaskDetailsComponent},
-  ...accountRoutes,
+  {
+    path: 'auth',
+    component: AuthLayoutComponent,
+    children: [
+      {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent}
+    ]
+  },
+
+  {path: '', component: HomeComponent},
+  {path: 'account', component: AccountComponent, children: accountRoutes},
+  {path: 'configurations', component: AccountComponent, children: configurationsRoutes},
+  {path: 'projects', component: TasksComponent},
+  {path: 'tasks-details/:id', component: TaskDetailsComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   ...configurationsRoutes,
-  { path: '**', redirectTo: '' },
-  {path: 'account', component: AccountComponent},
+  {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];

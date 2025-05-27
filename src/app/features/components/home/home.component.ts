@@ -20,6 +20,9 @@ import {
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {DatePipe, NgClass, NgForOf} from '@angular/common';
+import {RouterLink} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
+
 interface Project {
   name: string;
   progress: number;
@@ -59,6 +62,8 @@ interface Task {
     DatePipe,
     MatCardTitle,
     MatCardSubtitle,
+    RouterLink,
+    TranslatePipe,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -76,7 +81,7 @@ export class HomeComponent implements OnInit {
     { description: 'Inspección final', project: 'Carretera Norte', dueDate: new Date('2025-05-25'), status: 'Completado' }
   ];
 
-  displayedColumns: string[] = ['task', 'project', 'dueDate', 'status', 'actions'];
+  displayedColumns: string[] = ['task', 'project', 'dueDate', 'actions'];
 
   ngOnInit(): void {}
 

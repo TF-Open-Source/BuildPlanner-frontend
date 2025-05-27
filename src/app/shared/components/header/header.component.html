@@ -4,15 +4,22 @@
       <h1 style="font-size: larger">IronGrid Systems</h1>
     </div>
 
-    <ul class="menu">
+    <button mat-icon-button class="hamburger" (click)="toggleMobileMenu()">
+      <mat-icon aria-label="hamburger menu icon">menu</mat-icon>
+    </button>
+
+    <ul class="menu" [ngClass] = "{'active':isMobileMenuOpen}">
       <li class="item-menu">
-        <a mat-flat-button routerLink="/home">Home</a>
+        <a mat-flat-button routerLink="/">{{'HOME' | translate}}</a>
       </li>
       <li class="item-menu">
-        <a mat-flat-button routerLink="/tasks">Tasks</a>
+        <a mat-flat-button routerLink="/projects">{{ 'PROJECTS' | translate }}</a>
       </li>
       <li class="item-menu">
-        <a mat-flat-button routerLink="/dashboards">Dashboards</a>
+        <a mat-flat-button routerLink="/dashboards">{{ 'COLLABORATORS' | translate }}</a>
+      </li>
+      <li class="item-menu">
+        <a mat-flat-button routerLink="/dashboards">{{ 'REPORTS' | translate }}</a>
       </li>
     </ul>
   </div>
@@ -24,17 +31,40 @@
   <div class="user-menu">
     <ul class="menu">
       <li class="user-menu-item">
-        <mat-icon aria-label="notification icon">notifications</mat-icon>
+        <button class="user-menu-btn" mat-icon-button>
+          <mat-icon aria-label="notification icon">notifications</mat-icon>
+        </button>
       </li>
-      <li class="user-menu-item">
-        <button mat-icon-button (click)="goToConfigurations()">
+
+      <li class="user-menu-item" (clickOutside)="closeDropDown('settings')">
+
+        <button mat-icon-button class="user-menu-btn" (click)="toggleDropDown($event, 'settings')">
           <mat-icon>settings</mat-icon>
         </button>
+        <div class="dropdown" *ngIf="dropdownStates['settings']">
+          <div class="dropdown-item">
+            <a routerLink="/account">General Settings</a>
+          </div>
+
+        </div>
       </li>
-      <li class="user-menu-item">
-        <button mat-icon-button (click)="goToAccount()">
+
+      <li class="user-menu-item" (clickOutside)="closeDropDown('account')">
+        <button class = "user-menu-btn" mat-icon-button (click)="toggleDropDown($event, 'account')">
           <mat-icon>account_circle</mat-icon>
         </button>
+        <div class="dropdown" *ngIf="dropdownStates['account']">
+          <div class="dropdown-item">
+            <a routerLink="/account">Profile</a>
+          </div>
+          <div class="dropdown-item">
+            <a routerLink="/configurations">Account Settings</a>
+          </div>
+          <div class="dropdown-item">
+            Theme
+          </div>
+          <div class="dropdown-item">Log Out</div>
+        </div>
       </li>
     </ul>
   </div>

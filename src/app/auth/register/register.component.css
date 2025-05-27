@@ -1,45 +1,117 @@
+a{
+  text-decoration: none;
+}
+
 .register-container {
-  background-color: #e0e0e0;
-  padding: 30px;
-  width: 300px;
-  border-radius: 20px;
-  margin: 40px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
   width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter, sans-serif;
 }
 
-input, select {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #c1c1c1;
+.register-card{
+  margin: 10% auto;
+  padding: 10px 15px;
+  border-radius: 8px;
+  width: 28em;
+  overflow: visible!important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
 }
 
-button {
-  background-color: #888;
-  color: white;
+.card-title{
+  font-size: 22px;
+  font-weight: bold;
+  color: darkslategray;
+  text-align: center;
+  margin-bottom: 16px;
   padding: 10px;
-  border: none;
-  border-radius: 20px;
-  margin-top: 10px;
+}
+
+.full-width {
+  width: 100%;
+  align-items: center;
+  margin-bottom: 15px;
   cursor: pointer;
 }
 
-.terms {
-  font-size: 12px;
-  margin-bottom: 10px;
+.first-info, .account-info{
+  width: 100%;
+  display: flex;
+  gap: 10px;
 }
 
-.login-link {
-  text-align: center;
-  font-size: 12px;
+.birthday-fields{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  position: relative;
+  overflow: visible !important;
+}
+
+.birthday-field{
+  flex: 1;
+  min-width: 80px;
+}
+
+.custom-select-panel{
+  background-color: white !important;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 1000;
+}
+
+mat-select{
+  padding: 0 10px;
+}
+
+mat-option {
+  background-color: white !important;
+  color: black !important;
+  font-size: 14px;
+  padding: 8px;
+}
+
+mat-option:hover,
+mat-option.mat-selected {
+  background-color: #f0f0f0 !important;
+  color: black !important;
+}
+
+input{
+  height: 100%;
+  padding: 0 8px;
+  font-size: 16px;
+}
+.checkbox-terms{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.register-button{
+  width: 100%;
+  padding: 3px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff!important;
+  background-color: #1f2937!important;
+  border-radius: 4px;
+}
+
+.login-link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 10px;
+}
+
+mat-error{
+  color: red;
+  font-size: 13px;
 }
