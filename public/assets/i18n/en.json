@@ -109,5 +109,37 @@
       "TASK_SUPERVISION": "Task Supervision",
       "MACHINERY_COORD": "Machinery Coordination"
     }
+  },
+  "HOME": {
+    "TITLE": "Project Management",
+    "CREATE_PROJECT": "Create New Project",
+    "ONGOING_PROJECTS": "Ongoing Projects",
+    "PROGRESS": "Progress",
+    "END_DATE": "End Date",
+    "VIEW_DETAILS": "View Details",
+    "PENDING_TASKS": "Pending Tasks",
+    "TASK": "Task",
+    "PROJECT": "Project",
+    "DUE_DATE": "Due Date",
+    "STATUS": "Status",
+    "ACTIONS": "Actions",
+    "VIEW_ALL_TASKS": "View all tasks",
+
+    "STATUS_VALUES": {
+      "PENDING": "Pending",
+      "COMPLETED": "Completed"
+    },
+
+    "TASKS": {
+      "REVIEW_STRUCTURAL_PLANS": "Review structural plans",
+      "COORDINATE_MATERIAL_DELIVERY": "Coordinate material delivery",
+      "FINAL_INSPECTION": "Final inspection"
+    },
+
+    "PROJECTS": {
+      "BUILDING_A": "Building A Construction",
+      "CENTRAL_BRIDGE": "Central Bridge",
+      "NORTH_HIGHWAY": "North Highway"
+    }
   }
 }

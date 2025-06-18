@@ -103,5 +103,37 @@
       "TASK_SUPERVISION": "Supervisión de tareas",
       "MACHINERY_COORD": "Coordinación de maquinaria"
     }
+  },
+  "HOME": {
+    "TITLE": "Gestión de Obras",
+    "CREATE_PROJECT": "Crear Nuevo Proyecto",
+    "ONGOING_PROJECTS": "Proyectos en Curso",
+    "PROGRESS": "Progreso",
+    "END_DATE": "Fecha de Finalización",
+    "VIEW_DETAILS": "Ver Detalles",
+    "PENDING_TASKS": "Tareas Pendientes",
+    "TASK": "Tarea",
+    "PROJECT": "Proyecto",
+    "DUE_DATE": "Fecha Límite",
+    "STATUS": "Estado",
+    "ACTIONS": "Acciones",
+    "VIEW_ALL_TASKS": "Ver todas las tareas",
+
+    "STATUS_VALUES": {
+      "PENDING": "Pendiente",
+      "COMPLETED": "Completado"
+    },
+
+    "TASKS": {
+      "REVIEW_STRUCTURAL_PLANS": "Revisar planos estructurales",
+      "COORDINATE_MATERIAL_DELIVERY": "Coordinar entrega de materiales",
+      "FINAL_INSPECTION": "Inspección final"
+    },
+
+    "PROJECTS": {
+      "BUILDING_A": "Construcción Edificio A",
+      "CENTRAL_BRIDGE": "Puente Central",
+      "NORTH_HIGHWAY": "Carretera Norte"
+    }
   }
 }

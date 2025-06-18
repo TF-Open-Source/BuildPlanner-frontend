@@ -75,3 +75,29 @@ header {
   opacity: 0.5;
   cursor: default;
 }
+.language-switch {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.lang-btn {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.lang-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+  border-color: gray;
+}
+
+.lang-btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
