@@ -44,7 +44,7 @@ export class TasksComponent implements OnInit {
   constructor(private taskService: TaskService, private translate: TranslateService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.tareas = this.taskService.getTareas();
+    this.tareas = this.taskService.getTareas().sort((a, b) => b.prioridad - a.prioridad);
     this.obreros = this.taskService.getObreros();
   }
   traducirNombreTarea(nombre: string): string {
@@ -66,6 +66,7 @@ export class TasksComponent implements OnInit {
 
       this.taskService.agregarTarea(nueva); // Guardar y persistir
       this.tareas = this.taskService.getTareas(); // Refrescar vista
+      this.tareas.sort((a, b) => b.prioridad - a.prioridad);
       const mensaje = this.translate.instant('TASKS.NOTIFICATION', {
         task: nueva.nombre,
         worker: nueva.assignedTo?.name

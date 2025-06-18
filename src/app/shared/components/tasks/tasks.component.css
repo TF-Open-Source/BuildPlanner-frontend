@@ -81,7 +81,10 @@ button[type="submit"] {
   background-color: var(--blue) !important;
   color: black;
 }
-
+.high-priority {
+  background-color: #fff8dc !important; /* amarillo claro (cornsilk) */
+  font-weight: bold;
+}
 /* Contenedor interno que limita el ancho de la tabla */
 .tasks-content {
   width: 100%;
@@ -164,3 +167,27 @@ select {
   background-color: #fff;
   color: var(--text-color);
 }
+
+/* Icono de prioridad con colores progresivos */
+.priority-icon {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Bajo (1-2): Verde */
+.priority-1,
+.priority-2 {
+  color: #2e7d32; /* verde */
+}
+
+/* Media (3): Naranja */
+.priority-3 {
+  color: #f9a825; /* ámbar */
+}
+
+/* Alta (4-5): Rojo */
+.priority-4,
+.priority-5 {
+  color: #c62828; /* rojo */
+}
+
