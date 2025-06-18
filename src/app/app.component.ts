@@ -15,6 +15,9 @@ import {FooterComponent} from './shared/components/footer/footer.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title(title: any) {
+      throw new Error('Method not implemented.');
+  }
   constructor(private translate: TranslateService) {
     const browserLang = localStorage.getItem('lang') || translate.getBrowserLang();
     translate.use(browserLang?.match(/en|es/) ? browserLang : 'es');

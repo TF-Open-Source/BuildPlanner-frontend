@@ -9,6 +9,7 @@ import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
 import { Task, ConstructionWorker } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-tasks',
@@ -21,7 +22,8 @@ import { TaskService } from '../../services/task.service';
     MatButtonModule,
     FormsModule,
     RouterModule,
-    TranslateModule
+    TranslateModule,
+    MatSnackBarModule,
   ],
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
@@ -39,7 +41,7 @@ export class TasksComponent implements OnInit {
     assignedTo: undefined
   };
 
-  constructor(private taskService: TaskService, private translate: TranslateService,) {}
+  constructor(private taskService: TaskService, private translate: TranslateService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.tareas = this.taskService.getTareas();
@@ -55,6 +57,7 @@ export class TasksComponent implements OnInit {
       this.nuevaTarea.nombre?.trim() &&
       this.nuevaTarea.fechaLimite &&
       this.nuevaTarea.assignedTo
+
     ) {
       const nueva = {
         ...this.nuevaTarea,
@@ -63,6 +66,17 @@ export class TasksComponent implements OnInit {
 
       this.taskService.agregarTarea(nueva); // Guardar y persistir
       this.tareas = this.taskService.getTareas(); // Refrescar vista
+      const mensaje = this.translate.instant('TASKS.NOTIFICATION', {
+        task: nueva.nombre,
+        worker: nueva.assignedTo?.name
+      });
+
+      this.snackBar.open(mensaje, '', {
+        duration: 4000,
+        verticalPosition: 'top',
+        horizontalPosition: 'center',
+        panelClass: ['custom-snackbar']
+      });
       this.reiniciarFormulario();
     }
   }

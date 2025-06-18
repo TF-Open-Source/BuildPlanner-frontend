@@ -139,6 +139,7 @@
   },
   "TASKS": {
     "BREADCRUMB": "Tasks",
+    "NOTIFICATION": "Task '{{task}}' has been assigned to {{worker}}.",
     "SORT_BY": "Sort by",
     "TASK": "Task",
     "DUE_DATE": "Due Date",
