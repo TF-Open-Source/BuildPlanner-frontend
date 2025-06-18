@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,11 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              public translate: TranslateService) {
+    const savedLang = localStorage.getItem('lang') || 'es';
+    translate.use(savedLang);
+  }
 
   goToAccount(): void {
     console.log('Click Detectado');
@@ -26,5 +31,13 @@ export class HeaderComponent {
   }
   goToConfigurations(): void {
     this.router.navigate(['/configurations']);
+  }
+  switchLang(lang: string): void {
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang);
+  }
+
+  currentLang(): string {
+    return this.translate.currentLang;
   }
 }

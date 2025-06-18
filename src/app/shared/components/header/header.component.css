@@ -64,3 +64,14 @@ header {
   cursor: pointer;
   background-color: #4f6c6e;
 }
+.language-switch button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.language-switch button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}

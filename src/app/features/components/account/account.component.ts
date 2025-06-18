@@ -7,6 +7,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-account',
@@ -21,7 +22,8 @@ import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
     MatIcon,
     RouterOutlet,
     RouterLinkActive,
-    RouterLink
+    RouterLink,
+    TranslatePipe
   ],
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css']

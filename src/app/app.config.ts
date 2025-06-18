@@ -3,11 +3,13 @@ import { provideRouter } from '@angular/router';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 import { routes } from './app.routes';
+import { i18nProviders } from './translation.config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    ...i18nProviders,
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: {

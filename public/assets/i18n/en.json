@@ -1,6 +1,7 @@
 {
   "CONFIG": {
-    "TITLE": "Configurations",
+    "TITLE": "CONFIGURATIONS",
+    "TITLE_NOTIFICATIONS": "Notification Settings",
     "NOTIFICATIONS": "Enable notifications",
     "NOTIF.OPTIONS": {
       "MSG": "Receive message notifications",
@@ -9,21 +10,104 @@
       "HIRING": "Receive hiring alerts",
       "OFFERS": "Receive equipment offers"
     },
-    "PRIVACY.TITLE": "Privacy Settings",
-    "PRIVACY.TEXT": "You can control the visibility of your personal information and activity on the platform.",
-    "LANGREGION.TITLE": "Language & Region",
-    "LANGREGION.LANGUAGE": "Preferred Language",
-    "LANGREGION.TIMEZONE": "Timezone",
     "TERMS.TITLE": "Terms and Conditions",
     "TERMS.TEXT": "By using this platform, you agree to follow the terms and conditions outlined...",
     "POLICY.TITLE": "Privacy Policy",
     "POLICY.TEXT": "This policy explains how we collect and manage your personal data...",
-    "INFO.TITLE": "Application Info",
-    "INFO.NAME": "Name",
-    "INFO.VERSION": "Version",
-    "INFO.LAST_UPDATED": "Last updated",
-    "INFO.DEV": "Developed by",
-    "INFO.CONTACT": "Contact",
-    "INFO.LICENSE": "License"
+    "INFO": {
+      "TITLE": "Application Info",
+      "NAME": "Name",
+      "VERSION": "Version",
+      "LAST_UPDATED": "Last updated",
+      "DEV": "Developed by",
+      "CONTACT": "Contact",
+      "LICENSE": "License"
+    },
+    "PRIVACY": {
+      "TITLE": "Privacy Settings",
+      "TEXT": "You can control the visibility of your personal information and activity on the platform.",
+      "OPTION1": "Your profile is visible only to team members.",
+      "OPTION2": "Your task history is retained for 6 months.",
+      "OPTION3": "Private activities are not shared without your consent."
+    },
+    "LANGREGION": {
+      "TITLE": "Language & Region",
+      "LANGUAGE": "Preferred Language",
+      "TIMEZONE": "Timezone"
+    },
+    "TERMS": {
+      "TITLE": "Terms and Conditions",
+      "TEXT": "By using this platform, you agree to comply with the terms and conditions outlined in this document. This includes, but is not limited to, appropriate use of services, respect for other users, and adherence to applicable regulations. Any breach may result in account suspension or termination. Users agree to provide accurate information and keep their credentials confidential. The platform reserves the right to modify these terms at any time, notifying changes through official channels. These terms are subject to applicable local laws and may be updated without prior notice."
+    },
+    "POLICY": {
+      "TITLE": "Privacy Policy",
+      "P1": "This privacy policy explains how we collect, use, and protect your personal information when using our services. We are committed to safeguarding your data in accordance with applicable regulations.",
+      "P2": "We collect basic contact information, usage preferences, and technical data to enhance your experience. We will never share your information with third parties without your explicit consent.",
+      "P3": "You can access, correct, or delete your personal information from your account settings at any time."
+    }
+
+  },
+
+  "ACCOUNT": {
+    "TITLE": "Account",
+    "EDIT_ALIAS": "Edit alias",
+    "ALIAS_LABEL": "Nickname",
+    "SAVE_ALIAS": "Save alias",
+    "EDIT_IMAGE": "Change image",
+    "DELETE_IMAGE": "Delete image",
+    "SAVE_IMAGE": "Save image",
+    "CANCEL": "Cancel",
+    "MENU": {
+      "SERVICES": "My completed services",
+      "CONTACT": "Contact us",
+      "PROFILE": "My Profile",
+      "PASSWORD": "My Password",
+      "PAYMENTS": "Payment Status"
+    },
+    "CONTACT": {
+      "TITLE": "Contact Us",
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "MESSAGE": "Message",
+      "SUBMIT": "Send Message"
+    },
+    "PROFILE": {
+      "TITLE": "My Profile",
+      "EDITING": "You are editing your profile",
+      "FULL_NAME": "Full Name",
+      "DNI": "DNI",
+      "PHONE": "Phone",
+      "AGE": "Age",
+      "EMAIL": "Email",
+      "GENDER": "Gender",
+      "SAVE": "Save changes",
+      "EDIT": "Edit profile"
+    },
+    "PASSWORD": {
+      "TITLE": "Change Password",
+      "CURRENT": "Current Password",
+      "NEW": "New Password",
+      "CONFIRM": "Confirm New Password",
+      "ERROR_MISMATCH": "Passwords do not match",
+      "SUBMIT": "Change Password"
+    },
+    "PAYMENTS": {
+      "TITLE": "Payment Status",
+      "ID": "Payment #{{id}}",
+      "DATE": "Date",
+      "AMOUNT": "Amount",
+      "STATUS": "Status",
+      "STATUS_PAID": "Paid",
+      "STATUS_PENDING": "Pending"
+    },
+    "SERVICES": {
+      "TITLE": "My Completed Services",
+      "STATUS_LABEL": "Status",
+      "STATUS_COMPLETED": "Completed",
+      "STATUS_PENDING": "Pending",
+      "WORK_INSPECTION": "Work Inspection",
+      "TASK_SUPERVISION": "Task Supervision",
+      "MACHINERY_COORD": "Machinery Coordination"
+    }
   }
 }

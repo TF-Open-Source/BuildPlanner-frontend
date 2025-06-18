@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-account-payments',
   standalone: true,
-  imports: [CommonModule, MatCardModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    TranslateModule],
   templateUrl: './account-payments.component.html',
   styleUrls: ['./account-payments.component.css']
 })

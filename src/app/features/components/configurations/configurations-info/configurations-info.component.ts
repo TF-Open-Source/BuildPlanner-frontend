@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-configurations-info',
@@ -9,7 +10,8 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./configurations-info.component.css'],
   imports: [
     CommonModule,
-    MatCardModule
+    MatCardModule,
+    TranslateModule,
   ]
 })
 export class ConfigurationsInfoComponent {}

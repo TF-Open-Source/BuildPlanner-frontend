@@ -23,6 +23,11 @@
 
   <div class="user-menu">
     <ul class="menu">
+      <!-- Idioma -->
+      <li class="user-menu-item language-switch">
+        <button (click)="switchLang('es')" [disabled]="currentLang() === 'es'">🇪🇸</button>
+        <button (click)="switchLang('en')" [disabled]="currentLang() === 'en'">🇺🇸</button>
+      </li>
       <li class="user-menu-item">
         <mat-icon aria-label="notification icon">notifications</mat-icon>
       </li>

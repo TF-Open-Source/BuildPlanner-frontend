@@ -1,14 +1,31 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import {RouterOutlet} from '@angular/router';
 import {HeaderComponent} from './shared/components/header/header.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
+import {FooterComponent} from './shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent
+  ],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'BuildPlannerFrontend';
+  constructor(private translate: TranslateService) {
+    const browserLang = localStorage.getItem('lang') || translate.getBrowserLang();
+    translate.use(browserLang?.match(/en|es/) ? browserLang : 'es');
+  }
+
+  switchLang(lang: string): void {
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang);
+  }
+
+  currentLang(): string {
+    return this.translate.currentLang;
+  }
 }

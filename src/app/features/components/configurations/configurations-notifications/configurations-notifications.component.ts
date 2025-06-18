@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormBuilder, FormsModule} from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-configurations-notifications',
@@ -13,39 +14,49 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     CommonModule,
     FormsModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    TranslateModule
   ]
 })
 export class ConfigurationsNotificationsComponent implements OnInit {
+  constructor(private formBuilder: FormBuilder,
+              private translate: TranslateService,) { }
   notificationsEnabled = false;
 
   notificationOptions = [
-    { label: 'Recibir notificaciones de mensajes', checked: false },
-    { label: 'Recibir notificaciones de actualizaciones', checked: false },
-    { label: 'Recibir notificaciones de mensajes de correo', checked: false },
-    { label: 'Recibir notificaciones de nueva selección de personal', checked: false },
-    { label: 'Recibir notificaciones de ofertas de equipos', checked: false }
+    { label: 'CONFIG.NOTIF.OPTIONS.MSG', checked: false },
+    { label: 'CONFIG.NOTIF.OPTIONS.UPDATES', checked: false },
+    { label: 'CONFIG.NOTIF.OPTIONS.EMAIL', checked: false },
+    { label: 'CONFIG.NOTIF.OPTIONS.HIRING', checked: false },
+    { label: 'CONFIG.NOTIF.OPTIONS.OFFERS', checked: false }
   ];
 
   ngOnInit(): void {
     const storedEnabled = localStorage.getItem('notificationsEnabled');
-    const storedOptions = localStorage.getItem('notificationOptions');
+    const storedChecked = localStorage.getItem('notificationCheckedMap');
 
     if (storedEnabled !== null) {
       this.notificationsEnabled = JSON.parse(storedEnabled);
     }
 
-    if (storedOptions) {
-      const parsed = JSON.parse(storedOptions);
-      // Validamos que tenga el mismo número de elementos
-      if (Array.isArray(parsed) && parsed.length === this.notificationOptions.length) {
-        this.notificationOptions = parsed;
-      }
+    if (storedChecked) {
+      const checkedMap = JSON.parse(storedChecked);
+      this.notificationOptions.forEach(option => {
+        if (checkedMap[option.label] !== undefined) {
+          option.checked = checkedMap[option.label];
+        }
+      });
     }
   }
 
   onChange(): void {
     localStorage.setItem('notificationsEnabled', JSON.stringify(this.notificationsEnabled));
-    localStorage.setItem('notificationOptions', JSON.stringify(this.notificationOptions));
+
+    const checkedMap: Record<string, boolean> = {};
+    this.notificationOptions.forEach(option => {
+      checkedMap[option.label] = option.checked;
+    });
+
+    localStorage.setItem('notificationCheckedMap', JSON.stringify(checkedMap));
   }
 }

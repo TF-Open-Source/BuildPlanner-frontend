@@ -1,6 +1,7 @@
 {
   "CONFIG": {
-    "TITLE": "Configuraciones",
+    "TITLE": "CONFIGURACIONES",
+    "TITLE_NOTIFICATIONS": "Configuración de Notificaciones",
     "NOTIFICATIONS": "Activar notificaciones",
     "NOTIF.OPTIONS": {
       "MSG": "Recibir notificaciones de mensajes",
@@ -9,21 +10,98 @@
       "HIRING": "Recibir alertas de selección de personal",
       "OFFERS": "Recibir ofertas de equipos"
     },
-    "PRIVACY.TITLE": "Configuraciones de privacidad",
-    "PRIVACY.TEXT": "Puedes controlar la visibilidad de tu información personal y actividad en la plataforma.",
-    "LANGREGION.TITLE": "Idioma y Región",
-    "LANGREGION.LANGUAGE": "Idioma preferido",
-    "LANGREGION.TIMEZONE": "Zona horaria",
-    "TERMS.TITLE": "Términos y Condiciones",
-    "TERMS.TEXT": "Al utilizar esta plataforma, aceptas cumplir con los términos y condiciones establecidos...",
-    "POLICY.TITLE": "Políticas de Privacidad",
-    "POLICY.TEXT": "Esta política explica cómo recopilamos y gestionamos tus datos personales...",
-    "INFO.TITLE": "Información de la Aplicación",
-    "INFO.NAME": "Nombre",
-    "INFO.VERSION": "Versión",
-    "INFO.LAST_UPDATED": "Última actualización",
-    "INFO.DEV": "Desarrollado por",
-    "INFO.CONTACT": "Contacto",
-    "INFO.LICENSE": "Licencia"
+    "PRIVACY": {
+      "TITLE": "Configuración de Privacidad",
+      "TEXT": "Puedes controlar la visibilidad de tu información personal y actividad en la plataforma.",
+      "OPTION1": "Tu perfil es visible solo para los miembros del equipo.",
+      "OPTION2": "Tu historial de tareas se conserva por 6 meses.",
+      "OPTION3": "Las actividades privadas no son compartidas sin tu consentimiento."
+    },
+    "LANGREGION": {
+      "TITLE": "Idioma y Región",
+      "LANGUAGE": "Idioma preferido",
+      "TIMEZONE": "Zona horaria"
+    },
+    "TERMS": {
+      "TITLE": "Términos y Condiciones",
+      "TEXT": "Al utilizar esta plataforma, aceptas cumplir con los términos y condiciones establecidos en este documento. Esto incluye, pero no se limita a, el uso adecuado de los servicios, el respeto a otros usuarios y el cumplimiento de las normativas vigentes. Cualquier incumplimiento puede derivar en la suspensión o eliminación de la cuenta. El usuario se compromete a proporcionar información veraz y mantener la confidencialidad de sus credenciales. La plataforma se reserva el derecho de modificar estos términos en cualquier momento, notificando los cambios mediante los canales oficiales. Estos términos están sujetos a las leyes aplicables en el territorio y pueden ser actualizados sin previo aviso."
+    },
+    "POLICY": {
+      "TITLE": "Políticas de Privacidad",
+      "P1": "Esta política de privacidad explica cómo recopilamos, usamos y protegemos tu información personal cuando utilizas nuestros servicios. Nos comprometemos a garantizar la privacidad de tus datos conforme a las regulaciones aplicables.",
+      "P2": "Recopilamos información básica de contacto, preferencias de uso y datos técnicos para mejorar tu experiencia. Nunca compartiremos tu información con terceros sin tu consentimiento explícito.",
+      "P3": "Puedes acceder, corregir o eliminar tu información personal desde la configuración de tu cuenta en cualquier momento."
+    },
+    "INFO": {
+      "TITLE": "Información de la Aplicación",
+      "NAME": "Nombre",
+      "VERSION": "Versión",
+      "LAST_UPDATED": "Última actualización",
+      "DEV": "Desarrollado por",
+      "CONTACT": "Contacto",
+      "LICENSE": "Licencia"
+    }
+  },
+  "ACCOUNT": {
+    "TITLE": "Cuenta",
+    "EDIT_ALIAS": "Editar alias",
+    "ALIAS_LABEL": "Sobrenombre",
+    "SAVE_ALIAS": "Guardar alias",
+    "EDIT_IMAGE": "Cambiar imagen",
+    "DELETE_IMAGE": "Eliminar imagen",
+    "SAVE_IMAGE": "Guardar imagen",
+    "CANCEL": "Cancelar",
+    "MENU": {
+      "SERVICES": "Mis servicios realizados",
+      "CONTACT": "Contáctanos",
+      "PROFILE": "Mi Perfil",
+      "PASSWORD": "Mi contraseña",
+      "PAYMENTS": "Estado de pagos"
+    },
+    "CONTACT": {
+      "TITLE": "Contáctanos",
+      "NAME": "Nombre",
+      "EMAIL": "Correo electrónico",
+      "MESSAGE": "Mensaje",
+      "SUBMIT": "Enviar mensaje"
+    },
+    "PROFILE": {
+      "TITLE": "Mi Perfil",
+      "EDITING": "Estás editando tu perfil",
+      "FULL_NAME": "Nombre completo",
+      "DNI": "DNI",
+      "PHONE": "Celular",
+      "AGE": "Edad",
+      "EMAIL": "Correo electrónico",
+      "GENDER": "Sexo",
+      "SAVE": "Guardar cambios",
+      "EDIT": "Editar perfil"
+    },
+    "PASSWORD": {
+      "TITLE": "Cambiar contraseña",
+      "CURRENT": "Contraseña actual",
+      "NEW": "Nueva contraseña",
+      "CONFIRM": "Confirmar nueva contraseña",
+      "ERROR_MISMATCH": "Las contraseñas no coinciden",
+      "SUBMIT": "Cambiar contraseña"
+    },
+    "PAYMENTS": {
+      "TITLE": "Estado de pagos",
+      "ID": "Pago #{{id}}",
+      "DATE": "Fecha",
+      "AMOUNT": "Monto",
+      "STATUS": "Estado",
+      "STATUS_PAID": "Pagado",
+      "STATUS_PENDING": "Pendiente"
+    },
+    "SERVICES": {
+      "TITLE": "Mis servicios realizados",
+      "STATUS_LABEL": "Estado",
+      "STATUS_COMPLETED": "Completado",
+      "STATUS_PENDING": "Pendiente",
+      "WORK_INSPECTION": "Inspección de obra",
+      "TASK_SUPERVISION": "Supervisión de tareas",
+      "MACHINERY_COORD": "Coordinación de maquinaria"
+    }
   }
 }

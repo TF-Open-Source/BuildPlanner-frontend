@@ -1,19 +1,25 @@
 <div class="services-container">
-  <h3>Mis servicios realizados</h3>
+  <h3>{{ 'ACCOUNT.SERVICES.TITLE' | translate }}</h3>
+
   <div class="card-list">
     <mat-card class="service-card" *ngFor="let service of services">
       <mat-card-header>
-        <mat-card-title>{{ service.title }}</mat-card-title>
+        <mat-card-title>{{ service.title | translate }}</mat-card-title>
         <mat-card-subtitle>{{ service.date }}</mat-card-subtitle>
       </mat-card-header>
+
       <mat-card-content>
         <p>
-          Estado:
+          {{ 'ACCOUNT.SERVICES.STATUS_LABEL' | translate }}:
           <strong [ngClass]="{
-            'status-completed': service.status === 'Completado',
-            'status-pending': service.status === 'Pendiente'
+            'status-completed': service.status === 'Completado' || service.status === 'Completed',
+            'status-pending': service.status === 'Pendiente' || service.status === 'Pending'
           }">
-            {{ service.status }}
+            {{
+              service.status === 'Completado' || service.status === 'Completed'
+                ? ('ACCOUNT.SERVICES.STATUS_COMPLETED' | translate)
+                : ('ACCOUNT.SERVICES.STATUS_PENDING' | translate)
+            }}
           </strong>
         </p>
       </mat-card-content>

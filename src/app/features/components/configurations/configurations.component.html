@@ -1,23 +1,34 @@
 <div class="configurations-container">
   <!-- Encabezado -->
   <div class="header-bar">
-    <h2>Configuraciones</h2>
-    <button mat-icon-button class="close-button" [routerLink]="['/home']" aria-label="Cerrar">
+    <h2>{{ 'CONFIG.TITLE' | translate }}</h2>
+    <button mat-icon-button class="close-button" [routerLink]="['/home']" [attr.aria-label]=" 'ACCOUNT.CLOSE' | translate ">
       <mat-icon>close</mat-icon>
     </button>
-
   </div>
 
   <!-- Contenido dividido -->
   <div class="configurations-content">
     <!-- Menú lateral izquierdo -->
     <div class="left">
-      <button routerLink="notifications" routerLinkActive="active">Notificaciones</button>
-      <button routerLink="privacy" routerLinkActive="active">Privacidad</button>
-      <button routerLink="region" routerLinkActive="active">Idioma y región</button>
-      <button routerLink="terms" routerLinkActive="active">Condiciones de servicio</button>
-      <button routerLink="policy" routerLinkActive="active">Políticas de privacidad</button>
-      <button routerLink="info" routerLinkActive="active">Información</button>
+      <button routerLink="notifications" routerLinkActive="active">
+        {{ 'CONFIG.NOTIFICATIONS' | translate }}
+      </button>
+      <button routerLink="privacy" routerLinkActive="active">
+        {{ 'CONFIG.PRIVACY.TITLE' | translate }}
+      </button>
+      <button routerLink="region" routerLinkActive="active">
+        {{ 'CONFIG.LANGREGION.TITLE' | translate }}
+      </button>
+      <button routerLink="terms" routerLinkActive="active">
+        {{ 'CONFIG.TERMS.TITLE' | translate }}
+      </button>
+      <button routerLink="policy" routerLinkActive="active">
+        {{ 'CONFIG.POLICY.TITLE' | translate }}
+      </button>
+      <button routerLink="info" routerLinkActive="active">
+        {{ 'CONFIG.INFO.TITLE' | translate }}
+      </button>
     </div>
 
     <!-- Contenido dinámico de cada subcomponente -->

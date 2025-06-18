@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-configurations-region',
@@ -13,7 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     FormsModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    TranslateModule
   ]
 })
 export class ConfigurationsRegionComponent {
