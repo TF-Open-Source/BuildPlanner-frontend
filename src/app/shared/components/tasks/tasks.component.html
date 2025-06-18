@@ -1,8 +1,9 @@
 <section class="tasks-container">
-    <h1 class="page-title">Inicio &gt; Tareas</h1>
+  <h1 class="page-title">{{ 'TASKS.BREADCRUMB' | translate }}</h1>
+
   <div class="tasks-content">
     <div class="toolbar">
-      <span class="sort-label">Ordenar por:</span>
+      <span class="sort-label">{{ 'TASKS.SORT_BY' | translate }}</span>
       <button mat-icon-button (click)="ordenarPorFecha()" aria-label="Ordenar por fecha">
         <mat-icon>calendar_today</mat-icon>
       </button>
@@ -20,37 +21,39 @@
 
       <!-- Tarea -->
       <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> Tarea </th>
-        <td mat-cell *matCellDef="let tarea"> {{ tarea.nombre }} </td>
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.TASK' | translate }}</th>
+        <td mat-cell *matCellDef="let tarea">
+          {{ 'TASKS.NAMES.' + tarea.nombre | translate }}
+        </td>
       </ng-container>
 
       <!-- Fecha Límite -->
       <ng-container matColumnDef="fecha">
-        <th mat-header-cell *matHeaderCellDef> Fecha Límite </th>
-        <td mat-cell *matCellDef="let tarea"> {{ tarea.fechaLimite }} </td>
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.DUE_DATE' | translate }}</th>
+        <td mat-cell *matCellDef="let tarea">{{ tarea.fechaLimite }}</td>
       </ng-container>
 
       <!-- Prioridad -->
       <ng-container matColumnDef="prioridad">
-        <th mat-header-cell *matHeaderCellDef> Prioridad </th>
-        <td mat-cell *matCellDef="let tarea"> {{ tarea.prioridad }} </td>
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.PRIORITY' | translate }}</th>
+        <td mat-cell *matCellDef="let tarea">{{ tarea.prioridad }}</td>
       </ng-container>
 
       <!-- Estado -->
       <ng-container matColumnDef="estado">
-        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.STATUS' | translate }}</th>
         <td mat-cell *matCellDef="let tarea">
           <select [(ngModel)]="tarea.estado">
-            <option value="Pendiente">Pendiente</option>
-            <option value="En progreso">En progreso</option>
-            <option value="Completada">Completada</option>
+            <option value="PENDING">{{ 'TASKS.STATUS_VALUES.PENDING' | translate }}</option>
+            <option value="IN_PROGRESS">{{ 'TASKS.STATUS_VALUES.IN_PROGRESS' | translate }}</option>
+            <option value="COMPLETED">{{ 'TASKS.STATUS_VALUES.COMPLETED' | translate }}</option>
           </select>
         </td>
       </ng-container>
 
       <!-- Problemas -->
       <ng-container matColumnDef="problemas">
-        <th mat-header-cell *matHeaderCellDef> Problemas </th>
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.ISSUES' | translate }}</th>
         <td mat-cell *matCellDef="let tarea">
           <button mat-icon-button aria-label="report issue">
             <mat-icon>report_problem</mat-icon>
@@ -59,9 +62,8 @@
       </ng-container>
 
       <!-- Descripción -->
-      <!-- Descripción -->
       <ng-container matColumnDef="descripcion">
-        <th mat-header-cell *matHeaderCellDef> Descripción </th>
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.DETAILS' | translate }}</th>
         <td mat-cell *matCellDef="let tarea">
           <a mat-icon-button [routerLink]="['/task-details', tarea.id]" aria-label="ver detalle">
             <mat-icon>search</mat-icon>

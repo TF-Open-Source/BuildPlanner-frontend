@@ -141,5 +141,51 @@
       "CENTRAL_BRIDGE": "Central Bridge",
       "NORTH_HIGHWAY": "North Highway"
     }
+  },
+  "TASKS": {
+    "BREADCRUMB": "Home > Tasks",
+    "SORT_BY": "Sort by:",
+    "TASK": "Task",
+    "DUE_DATE": "Due Date",
+    "PRIORITY": "Priority",
+    "STATUS": "Status",
+    "ISSUES": "Issues",
+    "DETAILS": "Details",
+    "STATUS_VALUES": {
+      "PENDING": "Pending",
+      "IN_PROGRESS": "In progress",
+      "COMPLETED": "Completed"
+    },
+    "NAMES": {
+      "PREPARE_MIX": "Prepare mix",
+      "INSTALL_SCAFFOLDING": "Install scaffolding",
+      "REVIEW_PLANS": "Review plans"
+    }
+  },
+  "TASK_DETAILS": {
+    "BREADCRUMB": "Home > Tasks > Description",
+    "NUMBER": "No.",
+    "TASK": "Task",
+    "DESCRIPTION_TITLE": "Task Description",
+    "START_DATE": "Start Date",
+    "DUE_DATE": "Due Date",
+    "PRIORITY": "Priority",
+    "BACK": "Back",
+    "DESCRIPTIONS": {
+      "PREPARE_MIX": "Mix preparation details",
+      "INSTALL_SCAFFOLDING": "Safe installation of scaffolding",
+      "REVIEW_PLANS": "Review of structural plans"
+    }
+  },
+  "HEADER": {
+    "BRAND": "IronGrid Systems",
+    "HOME": "Home",
+    "TASKS": "Tasks",
+    "DASHBOARDS": "Dashboards",
+    "SEARCH": "Search"
+  },
+  "FOOTER": {
+    "RIGHTS": "All rights reserved."
   }
+
 }

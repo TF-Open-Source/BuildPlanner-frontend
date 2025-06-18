@@ -1,24 +1,24 @@
 <header>
   <div class="nav-menu">
     <div class="brand-title">
-      <h1 style="font-size: larger">IronGrid Systems</h1>
+      <h1 style="font-size: larger">{{ 'HEADER.BRAND' | translate }}</h1>
     </div>
 
     <ul class="menu">
       <li class="item-menu">
-        <a mat-flat-button routerLink="/home">Home</a>
+        <a mat-flat-button routerLink="/home">{{ 'HEADER.HOME' | translate }}</a>
       </li>
       <li class="item-menu">
-        <a mat-flat-button routerLink="/tasks">Tasks</a>
+        <a mat-flat-button routerLink="/tasks">{{ 'HEADER.TASKS' | translate }}</a>
       </li>
       <li class="item-menu">
-        <a mat-flat-button routerLink="/dashboards">Dashboards</a>
+        <a mat-flat-button routerLink="/dashboards">{{ 'HEADER.DASHBOARDS' | translate }}</a>
       </li>
     </ul>
   </div>
 
   <div class="search-box">
-    <input class="search-bar" type="text" placeholder="Search" />
+    <input class="search-bar" type="text" [placeholder]="'HEADER.SEARCH' | translate" />
   </div>
 
   <div class="user-menu">

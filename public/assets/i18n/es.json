@@ -135,5 +135,53 @@
       "CENTRAL_BRIDGE": "Puente Central",
       "NORTH_HIGHWAY": "Carretera Norte"
     }
+  },
+  "TASKS": {
+    "BREADCRUMB": "Inicio > Tareas",
+    "SORT_BY": "Ordenar por:",
+    "TASK": "Tarea",
+    "DUE_DATE": "Fecha Límite",
+    "PRIORITY": "Prioridad",
+    "STATUS": "Estado",
+    "ISSUES": "Problemas",
+    "DETAILS": "Descripción",
+    "STATUS_VALUES": {
+      "PENDING": "Pendiente",
+      "IN_PROGRESS": "En progreso",
+      "COMPLETED": "Completada"
+    },
+    "NAMES": {
+      "PREPARE_MIX": "Preparar mezcla",
+      "INSTALL_SCAFFOLDING": "Instalar andamios",
+      "REVIEW_PLANS": "Revisar planos"
+    }
+
+  },
+  "TASK_DETAILS": {
+    "BREADCRUMB": "Inicio > Tareas > Descripción",
+    "NUMBER": "N°",
+    "TASK": "Tarea",
+    "DESCRIPTION_TITLE": "Descripción de tarea",
+    "START_DATE": "Fecha de inicio",
+    "DUE_DATE": "Fecha de fin",
+    "PRIORITY": "Prioridad",
+    "BACK": "Regresar",
+    "DESCRIPTIONS": {
+      "PREPARE_MIX": "Descripción de la mezcla",
+      "INSTALL_SCAFFOLDING": "Instalación segura de andamios",
+      "REVIEW_PLANS": "Revisión de planos estructurales"
+    }
+  },
+  "HEADER": {
+    "BRAND": "IronGrid Systems",
+    "HOME": "Inicio",
+    "TASKS": "Tareas",
+    "DASHBOARDS": "Tableros",
+    "SEARCH": "Buscar"
+  },
+  "FOOTER": {
+    "RIGHTS": "Todos los derechos reservados."
   }
+
+
 }

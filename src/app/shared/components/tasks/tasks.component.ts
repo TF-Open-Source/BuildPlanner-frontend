@@ -5,6 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 /**
  * @summary Muestra la lista de tareas asignadas a los obreros de construcción con su estado editable.
@@ -13,7 +14,15 @@ import { RouterModule } from '@angular/router';
   selector: 'app-tasks',
   standalone: true,
   encapsulation: ViewEncapsulation.Emulated,
-  imports: [CommonModule, MatTableModule, MatIconModule, MatButtonModule, FormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    FormsModule,
+    RouterModule,
+    TranslateModule
+  ],
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
@@ -23,24 +32,24 @@ export class TasksComponent {
   tareas = [
     {
       id: 1,
-      nombre: 'Preparar mezcla',
+      nombre: 'PREPARE_MIX',
       fechaLimite: '2025-05-10',
       prioridad: 5,
-      estado: 'Pendiente'
+      estado: 'PENDING'
     },
     {
       id: 2,
-      nombre: 'Instalar andamios',
+      nombre: 'INSTALL_SCAFFOLDING',
       fechaLimite: '2025-06-20',
       prioridad: 2,
-      estado: 'En progreso'
+      estado: 'IN_PROGRESS'
     },
     {
       id: 3,
-      nombre: 'Revisar Planos',
+      nombre: 'REVIEW_PLANS',
       fechaLimite: '2025-06-21',
       prioridad: 3,
-      estado: 'Completada'
+      estado: 'COMPLETED'
     }
   ];
 
