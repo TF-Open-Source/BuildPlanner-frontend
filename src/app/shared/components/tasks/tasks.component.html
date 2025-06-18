@@ -1,6 +1,42 @@
 <section class="tasks-container">
   <h1 class="page-title">{{ 'TASKS.BREADCRUMB' | translate }}</h1>
 
+  <!-- Formulario de nueva tarea -->
+  <div class="task-form">
+    <h2>{{ 'TASKS.FORM.TITLE' | translate }}</h2>
+
+    <form (ngSubmit)="asignarTarea()">
+      <div class="form-group">
+        <label>{{ 'TASKS.FORM.NAME' | translate }}</label>
+        <input type="text" [(ngModel)]="nuevaTarea.nombre" name="nombre" required />
+      </div>
+
+      <div class="form-group">
+        <label>{{ 'TASKS.FORM.DUE_DATE' | translate }}</label>
+        <input type="date" [(ngModel)]="nuevaTarea.fechaLimite" name="fechaLimite" required />
+      </div>
+
+      <div class="form-group">
+        <label>{{ 'TASKS.FORM.PRIORITY' | translate }}</label>
+        <input type="number" min="1" max="5" [(ngModel)]="nuevaTarea.prioridad" name="prioridad" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ 'TASKS.FORM.ASSIGNEE' | translate }}</label>
+        <select [(ngModel)]="nuevaTarea.assignedTo" name="assignedTo" required>
+          <option *ngFor="let obrero of obreros" [ngValue]="obrero">
+            {{ obrero.name }}
+          </option>
+        </select>
+      </div>
+
+      <button mat-flat-button color="primary" type="submit"  >
+        {{ 'TASKS.FORM.BUTTONS.ASSIGN' | translate }}
+      </button>
+    </form>
+  </div>
+
+  <!-- Contenido principal -->
   <div class="tasks-content">
     <div class="toolbar">
       <span class="sort-label">{{ 'TASKS.SORT_BY' | translate }}</span>
@@ -23,7 +59,7 @@
       <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.TASK' | translate }}</th>
         <td mat-cell *matCellDef="let tarea">
-          {{ 'TASKS.NAMES.' + tarea.nombre | translate }}
+          {{ traducirNombreTarea(tarea.nombre) }}
         </td>
       </ng-container>
 

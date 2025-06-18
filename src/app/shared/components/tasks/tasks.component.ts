@@ -1,15 +1,15 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
-/**
- * @summary Muestra la lista de tareas asignadas a los obreros de construcción con su estado editable.
- */
+import { Task, ConstructionWorker } from '../../models/task.model';
+import { TaskService } from '../../services/task.service';
+
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -26,32 +26,62 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
-export class TasksComponent {
+export class TasksComponent implements OnInit {
   columnas = ['numero', 'nombre', 'fecha', 'prioridad', 'estado', 'problemas', 'descripcion'];
+  tareas: Task[] = [];
+  obreros: ConstructionWorker[] = [];
 
-  tareas = [
-    {
-      id: 1,
-      nombre: 'PREPARE_MIX',
-      fechaLimite: '2025-05-10',
-      prioridad: 5,
-      estado: 'PENDING'
-    },
-    {
-      id: 2,
-      nombre: 'INSTALL_SCAFFOLDING',
-      fechaLimite: '2025-06-20',
-      prioridad: 2,
-      estado: 'IN_PROGRESS'
-    },
-    {
-      id: 3,
-      nombre: 'REVIEW_PLANS',
-      fechaLimite: '2025-06-21',
-      prioridad: 3,
-      estado: 'COMPLETED'
+  nuevaTarea: Partial<Task> = {
+    nombre: '',
+    fechaLimite: '',
+    prioridad: 1,
+    estado: 'PENDING',
+    assignedTo: undefined
+  };
+
+  constructor(private taskService: TaskService, private translate: TranslateService,) {}
+
+  ngOnInit() {
+    this.tareas = this.taskService.getTareas();
+    this.obreros = this.taskService.getObreros();
+  }
+  traducirNombreTarea(nombre: string): string {
+    const key = `TASKS.NAMES.${nombre}`;
+    const traducido = this.translate.instant(key);
+    return traducido === key ? nombre : traducido;
+  }
+  asignarTarea() {
+    if (
+      this.nuevaTarea.nombre?.trim() &&
+      this.nuevaTarea.fechaLimite &&
+      this.nuevaTarea.assignedTo
+    ) {
+      const nueva = {
+        ...this.nuevaTarea,
+        id: this.generarId()
+      } as Task;
+
+      this.taskService.agregarTarea(nueva); // Guardar y persistir
+      this.tareas = this.taskService.getTareas(); // Refrescar vista
+      this.reiniciarFormulario();
     }
-  ];
+  }
+
+  private generarId(): number {
+    return this.tareas.length > 0
+      ? Math.max(...this.tareas.map(t => t.id)) + 1
+      : 1;
+  }
+
+  reiniciarFormulario() {
+    this.nuevaTarea = {
+      nombre: '',
+      fechaLimite: '',
+      prioridad: 1,
+      estado: 'PENDING',
+      assignedTo: undefined
+    };
+  }
 
   ordenarPorFecha() {
     this.tareas.sort((a, b) => a.fechaLimite.localeCompare(b.fechaLimite));

@@ -45,9 +45,7 @@
       "P2": "We collect basic contact information, usage preferences, and technical data to enhance your experience. We will never share your information with third parties without your explicit consent.",
       "P3": "You can access, correct, or delete your personal information from your account settings at any time."
     }
-
   },
-
   "ACCOUNT": {
     "TITLE": "Account",
     "EDIT_ALIAS": "Edit alias",
@@ -124,18 +122,15 @@
     "STATUS": "Status",
     "ACTIONS": "Actions",
     "VIEW_ALL_TASKS": "View all tasks",
-
     "STATUS_VALUES": {
       "PENDING": "Pending",
       "COMPLETED": "Completed"
     },
-
     "TASKS": {
       "REVIEW_STRUCTURAL_PLANS": "Review structural plans",
       "COORDINATE_MATERIAL_DELIVERY": "Coordinate material delivery",
       "FINAL_INSPECTION": "Final inspection"
     },
-
     "PROJECTS": {
       "BUILDING_A": "Building A Construction",
       "CENTRAL_BRIDGE": "Central Bridge",
@@ -143,23 +138,33 @@
     }
   },
   "TASKS": {
-    "BREADCRUMB": "Home > Tasks",
-    "SORT_BY": "Sort by:",
+    "BREADCRUMB": "Tasks",
+    "SORT_BY": "Sort by",
     "TASK": "Task",
     "DUE_DATE": "Due Date",
     "PRIORITY": "Priority",
     "STATUS": "Status",
-    "ISSUES": "Issues",
-    "DETAILS": "Details",
     "STATUS_VALUES": {
       "PENDING": "Pending",
-      "IN_PROGRESS": "In progress",
+      "IN_PROGRESS": "In Progress",
       "COMPLETED": "Completed"
     },
+    "ISSUES": "Issues",
+    "DETAILS": "Details",
+    "FORM": {
+      "TITLE": "Assign New Task",
+      "NAME": "Task Name",
+      "DUE_DATE": "Due Date",
+      "PRIORITY": "Priority (1-5)",
+      "ASSIGNEE": "Assign to Worker",
+      "BUTTONS": {
+        "ASSIGN": "Assign Task"
+      }
+    },
     "NAMES": {
-      "PREPARE_MIX": "Prepare mix",
-      "INSTALL_SCAFFOLDING": "Install scaffolding",
-      "REVIEW_PLANS": "Review plans"
+      "PREPARE_MIX": "Prepare Mix",
+      "INSTALL_SCAFFOLDING": "Install Scaffolding",
+      "REVIEW_PLANS": "Review Plans"
     }
   },
   "TASK_DETAILS": {

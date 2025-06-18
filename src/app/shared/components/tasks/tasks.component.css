@@ -6,7 +6,17 @@
   --yellow: #FFD700;
 }
 
-/* Título de la página (Inicio > Tareas) */
+/* Contenedor principal que centra toda la sección de tareas */
+.tasks-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  background-color: var(--bg-color);
+}
+
+/* Título */
 .page-title {
   position: absolute;
   top: 20px;
@@ -16,13 +26,60 @@
   color: var(--text-color);
 }
 
-/* Contenedor principal que centra toda la sección de tareas */
-.tasks-container {
-  position: relative;
+h1 {
+  margin-bottom: 16px;
+  font-weight: normal;
+  font-size: 36px;
+  color: var(--text-color);
+}
+
+/* Formulario */
+.task-form {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin: 0 auto 2rem auto;
+  max-width: 360px; /* más compacto */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-form h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.form-group {
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 240px;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.6rem;
+  font-size: 18px;
+  border: 1px solid var(--blue);
+  border-radius: 6px;
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+/* Botón del formulario */
+button[type="submit"] {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 18px;
+  background-color: var(--blue) !important;
+  color: black;
 }
 
 /* Contenedor interno que limita el ancho de la tabla */
@@ -33,14 +90,7 @@
   flex-direction: column;
   align-items: stretch;
   background-color: var(--bg-color);
-}
-
-/* Estilo del título h1 */
-h1 {
-  margin-bottom: 16px;
-  font-weight: normal;
-  font-size: 36px;
-  color: var(--text-color);
+  margin-bottom: 80px; /* evita que choque con el footer */
 }
 
 /* Barra superior con texto "Ordenar por" e íconos */
@@ -57,34 +107,32 @@ h1 {
   font-size: 24px;
 }
 
-/* Tabla completa */
+/* Tabla */
 table {
   border-collapse: collapse;
   width: 100%;
 }
 
-/* Cuerpo y cabecera */
 th, td {
   padding: 12px 16px;
-  text-align: left;
+  text-align: center;
   vertical-align: middle;
   font-size: 24px;
   color: var(--text-color);
 }
-/* Fila hover */
+
 tr:hover {
-  background-color: var(--yellow); /* Amarillo claro */
+  background-color: var(--yellow);
 }
 
-/* Fila del encabezado de la tabla */
+/* Encabezado */
 .mat-header-row {
   background-color: var(--yellow) !important;
   color: var(--text-color) !important;
   font-weight: bold;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Celda del encabezado */
 .mat-header-cell {
   background-color: var(--yellow) !important;
   color: var(--text-color) !important;
@@ -92,13 +140,11 @@ tr:hover {
   border-bottom: 1px solid #ddd;
 }
 
-/* Evita que el encabezado cambie al pasar el mouse */
 .mat-header-cell:hover {
   background-color: var(--yellow) !important;
   color: var(--text-color) !important;
 }
 
-/* Fila de cada tarea */
 .mat-row {
   font-size: 24px;
   color: var(--text-color);
@@ -113,8 +159,8 @@ button mat-icon {
 select {
   font-size: 20px;
   padding: 4px;
-  border: 1px solid #004E7C;
+  border: 1px solid var(--blue);
   border-radius: 4px;
   background-color: #fff;
-  color: #1A1A1A;
+  color: var(--text-color);
 }

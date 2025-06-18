@@ -137,25 +137,34 @@
     }
   },
   "TASKS": {
-    "BREADCRUMB": "Inicio > Tareas",
-    "SORT_BY": "Ordenar por:",
+    "BREADCRUMB": "Tareas",
+    "SORT_BY": "Ordenar por",
     "TASK": "Tarea",
-    "DUE_DATE": "Fecha Límite",
+    "DUE_DATE": "Fecha límite",
     "PRIORITY": "Prioridad",
     "STATUS": "Estado",
-    "ISSUES": "Problemas",
-    "DETAILS": "Descripción",
     "STATUS_VALUES": {
       "PENDING": "Pendiente",
       "IN_PROGRESS": "En progreso",
       "COMPLETED": "Completada"
+    },
+    "ISSUES": "Problemas",
+    "DETAILS": "Detalles",
+    "FORM": {
+      "TITLE": "Asignar nueva tarea",
+      "NAME": "Nombre de la tarea",
+      "DUE_DATE": "Fecha límite",
+      "PRIORITY": "Prioridad (1-5)",
+      "ASSIGNEE": "Asignar a obrero",
+      "BUTTONS": {
+        "ASSIGN": "Asignar tarea"
+      }
     },
     "NAMES": {
       "PREPARE_MIX": "Preparar mezcla",
       "INSTALL_SCAFFOLDING": "Instalar andamios",
       "REVIEW_PLANS": "Revisar planos"
     }
-
   },
   "TASK_DETAILS": {
     "BREADCRUMB": "Inicio > Tareas > Descripción",
