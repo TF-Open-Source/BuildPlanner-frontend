@@ -137,6 +137,7 @@
     }
   },
   "TASKS": {
+    "STATUS_UPDATED": "La tarea '{{task}}' fue marcada como '{{status}}'",
     "BREADCRUMB": "Tareas",
     "SORT_BY": "Ordenar por",
     "NOTIFICATION": "Se ha asignado la tarea '{{task}}' a {{worker}}.",

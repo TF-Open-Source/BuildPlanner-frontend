@@ -80,11 +80,17 @@
             [ngClass]="[
               'priority-' + tarea.prioridad,
               esPrioridadAlta(tarea.prioridad) ? 'prioridad-alta' : ''
-            ]">
-            {{ tarea.prioridad }}
-            <mat-icon [ngClass]="'priority-' + tarea.prioridad">
-  {{ getPrioridadIcon(tarea.prioridad) }}
-</mat-icon>
+            ]"
+          >
+<select [ngModel]="tarea.prioridad"
+        (ngModelChange)="tarea.prioridad = +$event; cambiarPrioridad(tarea)"
+        [name]="'prioridad_' + tarea.id">
+  <option *ngFor="let p of [1, 2, 3, 4, 5]" [ngValue]="p">{{ p }}</option>
+</select>
+
+            <mat-icon [ngClass]="'priority-' + tarea.prioridad" aria-hidden="true">
+              {{ getPrioridadIcon(tarea.prioridad) }}
+            </mat-icon>
           </span>
         </td>
       </ng-container>
@@ -93,7 +99,9 @@
       <ng-container matColumnDef="estado">
         <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.STATUS' | translate }}</th>
         <td mat-cell *matCellDef="let tarea">
-          <select [(ngModel)]="tarea.estado">
+          <select [(ngModel)]="tarea.estado"
+                  (change)="cambiarEstado(tarea)"
+                  [name]="'estado_' + tarea.id">
             <option value="PENDING">{{ 'TASKS.STATUS_VALUES.PENDING' | translate }}</option>
             <option value="IN_PROGRESS">{{ 'TASKS.STATUS_VALUES.IN_PROGRESS' | translate }}</option>
             <option value="COMPLETED">{{ 'TASKS.STATUS_VALUES.COMPLETED' | translate }}</option>

@@ -138,6 +138,7 @@
     }
   },
   "TASKS": {
+    "STATUS_UPDATED": "Task '{{task}}' marked as '{{status}}'",
     "BREADCRUMB": "Tasks",
     "NOTIFICATION": "Task '{{task}}' has been assigned to {{worker}}.",
     "SORT_BY": "Sort by",

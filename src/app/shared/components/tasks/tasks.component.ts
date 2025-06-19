@@ -52,11 +52,10 @@ export class TasksComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const data = this.taskService.getTareas();
-    this.tareas.data = data;
-    this.tareas.paginator = this.paginator;
+    this.tareas.data = this.taskService.getTareas();
     this.obreros = this.taskService.getObreros();
   }
+
   ngAfterViewInit() {
     this.tareas.paginator = this.paginator;
   }
@@ -85,7 +84,7 @@ export class TasksComponent implements OnInit {
       } as Task;
 
       this.taskService.agregarTarea(nueva);
-      this.tareas.data = this.taskService.getTareas(); // recarga vista
+      this.tareas.data = this.taskService.getTareas();
       this.tareas.paginator = this.paginator;
 
       const mensaje = this.translate.instant('TASKS.NOTIFICATION', {
@@ -102,6 +101,25 @@ export class TasksComponent implements OnInit {
 
       this.reiniciarFormulario();
     }
+  }
+
+  cambiarPrioridad(tarea: Task) {
+    this.taskService.actualizarTarea(tarea);
+  }
+
+  cambiarEstado(tarea: Task) {
+    this.taskService.actualizarTarea(tarea);
+
+    const mensaje = this.translate.instant('TASKS.STATUS_UPDATED', {
+      task: tarea.nombre,
+      status: this.translate.instant(`TASKS.STATUS_VALUES.${tarea.estado}`),
+    });
+
+    this.snackBar.open(mensaje, '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['custom-snackbar'],
+    });
   }
 
   private generarId(): number {
@@ -132,6 +150,7 @@ export class TasksComponent implements OnInit {
     this.tareas.data = sorted;
     this.tareas.paginator = this.paginator;
   }
+
   getPrioridadIcon(prioridad: number): string {
     switch (prioridad) {
       case 1: return 'looks_one';
