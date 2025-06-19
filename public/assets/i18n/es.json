@@ -191,7 +191,10 @@
   },
   "FOOTER": {
     "RIGHTS": "Todos los derechos reservados."
-  }
+  },
 
+  "DASHBOARD": {
+    "TITLE": "Tareas asignadas por obrero"
+  }
 
 }

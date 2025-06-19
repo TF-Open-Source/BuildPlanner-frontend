@@ -30,7 +30,7 @@
         </select>
       </div>
 
-      <button mat-flat-button color="primary" type="submit"  >
+      <button mat-flat-button color="primary" type="submit">
         {{ 'TASKS.FORM.BUTTONS.ASSIGN' | translate }}
       </button>
     </form>
@@ -49,10 +49,13 @@
     </div>
 
     <table mat-table [dataSource]="tareas" class="mat-elevation-z1">
+
       <!-- N° -->
       <ng-container matColumnDef="numero">
         <th mat-header-cell *matHeaderCellDef> N° </th>
-        <td mat-cell *matCellDef="let tarea; let i = index"> {{ i + 1 }} </td>
+        <td mat-cell *matCellDef="let tarea; let i = index">
+          {{ i + 1 + (paginator?.pageIndex ?? 0) * (paginator?.pageSize ?? 5) }}
+        </td>
       </ng-container>
 
       <!-- Tarea -->
@@ -73,14 +76,16 @@
       <ng-container matColumnDef="prioridad">
         <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.PRIORITY' | translate }}</th>
         <td mat-cell *matCellDef="let tarea">
-          <mat-icon [ngClass]="'priority-icon priority-' + tarea.prioridad">
-            {{
-              tarea.prioridad >= 4 ? 'warning' :
-                tarea.prioridad === 3 ? 'priority_high' :
-                  'low_priority'
-            }}
-          </mat-icon>
-          {{ tarea.prioridad }}
+          <span
+            [ngClass]="[
+              'priority-' + tarea.prioridad,
+              esPrioridadAlta(tarea.prioridad) ? 'prioridad-alta' : ''
+            ]">
+            {{ tarea.prioridad }}
+            <mat-icon [ngClass]="'priority-' + tarea.prioridad">
+  {{ getPrioridadIcon(tarea.prioridad) }}
+</mat-icon>
+          </span>
         </td>
       </ng-container>
 
@@ -117,7 +122,10 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-      <tr mat-row *matRowDef="let row; columns: columnas;" [ngClass]="{'high-priority': row.prioridad >= 4}"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
     </table>
+
+    <!-- Paginador -->
+    <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
   </div>
 </section>

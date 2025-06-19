@@ -192,6 +192,9 @@
   },
   "FOOTER": {
     "RIGHTS": "All rights reserved."
+  },
+  "DASHBOARD": {
+    "TITLE": "Assigned Tasks by Worker"
   }
 
 }

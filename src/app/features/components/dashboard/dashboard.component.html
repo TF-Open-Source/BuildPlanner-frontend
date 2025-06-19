@@ -1,0 +1,14 @@
+<section class="dashboard-container">
+  <h1>{{ 'DASHBOARD.TITLE' | translate }}</h1>
+
+  <div class="dashboard-content">
+    <div class="worker-card" *ngFor="let grupo of tareasAgrupadas">
+      <h3>{{ grupo.obrero }}</h3>
+      <ul>
+        <li *ngFor="let tarea of grupo.tareas">
+          {{ traducirNombreTarea(tarea.nombre) }} ({{ traducirEstado(tarea.estado) }})
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
