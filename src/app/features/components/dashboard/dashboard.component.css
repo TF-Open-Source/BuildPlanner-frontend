@@ -10,3 +10,57 @@
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+.summary-cards {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.summary-card {
+  flex: 1;
+  min-width: 150px;
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.summary-count {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.summary-label {
+  font-size: 16px;
+  color: #333;
+}
+
+.summary-card.pending {
+  border-left: 6px solid #ffa000;
+}
+
+.summary-card.in-progress {
+  border-left: 6px solid #1976d2;
+}
+
+.summary-card.completed {
+  border-left: 6px solid #388e3c;
+}
+.problema-linea {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  margin-left: 10px;
+  color: #d32f2f; /* rojo suave */
+  font-size: 0.9rem;
+}
+
+.problema-descripcion {
+  margin-left: 5px;
+}
+
+

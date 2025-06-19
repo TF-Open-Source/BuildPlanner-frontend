@@ -205,3 +205,11 @@ td mat-icon {
 .priority-5 {
   color: #c62828; /* rojo */
 }
+.icono-problema-activo {
+  color: red !important;
+}
+
+.icono-problema-inactivo {
+  color: #555; /* o el gris que prefieras */
+}
+

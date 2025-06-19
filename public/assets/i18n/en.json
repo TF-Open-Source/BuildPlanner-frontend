@@ -169,6 +169,11 @@
       "REVIEW_PLANS": "Review Plans"
     }
   },
+  "PROBLEMS": {
+    "ADD": "Add problem",
+    "SHOW": "Show problem",
+    "DELETE": "Delete problem"
+  },
   "TASK_DETAILS": {
     "BREADCRUMB": "Home > Tasks > Description",
     "NUMBER": "No.",

@@ -76,17 +76,15 @@
       <ng-container matColumnDef="prioridad">
         <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.PRIORITY' | translate }}</th>
         <td mat-cell *matCellDef="let tarea">
-          <span
-            [ngClass]="[
-              'priority-' + tarea.prioridad,
-              esPrioridadAlta(tarea.prioridad) ? 'prioridad-alta' : ''
-            ]"
-          >
-<select [ngModel]="tarea.prioridad"
-        (ngModelChange)="tarea.prioridad = +$event; cambiarPrioridad(tarea)"
-        [name]="'prioridad_' + tarea.id">
-  <option *ngFor="let p of [1, 2, 3, 4, 5]" [ngValue]="p">{{ p }}</option>
-</select>
+          <span [ngClass]="[
+            'priority-' + tarea.prioridad,
+            esPrioridadAlta(tarea.prioridad) ? 'prioridad-alta' : ''
+          ]">
+            <select [ngModel]="tarea.prioridad"
+                    (ngModelChange)="tarea.prioridad = +$event; cambiarPrioridad(tarea)"
+                    [name]="'prioridad_' + tarea.id">
+              <option *ngFor="let p of [1, 2, 3, 4, 5]" [ngValue]="p">{{ p }}</option>
+            </select>
 
             <mat-icon [ngClass]="'priority-' + tarea.prioridad" aria-hidden="true">
               {{ getPrioridadIcon(tarea.prioridad) }}
@@ -110,11 +108,15 @@
       </ng-container>
 
       <!-- Problemas -->
+      <!-- Problemas -->
       <ng-container matColumnDef="problemas">
         <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.ISSUES' | translate }}</th>
         <td mat-cell *matCellDef="let tarea">
-          <button mat-icon-button aria-label="report issue">
-            <mat-icon>report_problem</mat-icon>
+          <button mat-icon-button [matMenuTriggerFor]="menuProblemas" (click)="tareaSeleccionada = tarea" aria-label="Gestionar problemas">
+            <mat-icon [ngClass]="tarea.hasIssue ? 'icono-problema-activo' : 'icono-problema-inactivo'">
+              {{ tarea.hasIssue ? 'report' : 'report_problem' }}
+            </mat-icon>
+
           </button>
         </td>
       </ng-container>
@@ -132,6 +134,22 @@
       <tr mat-header-row *matHeaderRowDef="columnas"></tr>
       <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
     </table>
+
+    <!-- Menú de problemas (único y reutilizable) -->
+    <mat-menu #menuProblemas="matMenu">
+      <button mat-menu-item (click)="ingresarProblema(tareaSeleccionada)">
+        <mat-icon>add_circle</mat-icon>
+        <span>{{ 'TASKS.PROBLEMS.ADD' | translate }}</span>
+      </button>
+      <button mat-menu-item (click)="mostrarProblema(tareaSeleccionada)">
+        <mat-icon>visibility</mat-icon>
+        <span>{{ 'TASKS.PROBLEMS.SHOW' | translate }}</span>
+      </button>
+      <button mat-menu-item (click)="eliminarProblema(tareaSeleccionada)">
+        <mat-icon>delete</mat-icon>
+        <span>{{ 'TASKS.PROBLEMS.DELETE' | translate }}</span>
+      </button>
+    </mat-menu>
 
     <!-- Paginador -->
     <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>

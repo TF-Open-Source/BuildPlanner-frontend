@@ -150,6 +150,11 @@
       "IN_PROGRESS": "En progreso",
       "COMPLETED": "Completada"
     },
+    "PROBLEMS": {
+      "ADD": "Ingresar problema",
+      "SHOW": "Mostrar problema",
+      "DELETE": "Eliminar problema"
+    },
     "ISSUES": "Problemas",
     "DETAILS": "Detalles",
     "FORM": {

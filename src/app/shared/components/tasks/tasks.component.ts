@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 import { Task, ConstructionWorker } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
@@ -28,6 +30,8 @@ import { TaskService } from '../../services/task.service';
     RouterModule,
     TranslateModule,
     MatSnackBarModule,
+    MatMenuModule,
+    MatDialogModule
   ],
 })
 export class TasksComponent implements OnInit {
@@ -45,10 +49,13 @@ export class TasksComponent implements OnInit {
     assignedTo: undefined,
   };
 
+  tareaSeleccionada!: Task; // para el menú contextual de problemas
+
   constructor(
     private taskService: TaskService,
     private translate: TranslateService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -81,6 +88,8 @@ export class TasksComponent implements OnInit {
       const nueva = {
         ...this.nuevaTarea,
         id: this.generarId(),
+        hasIssue: false,
+        issueDescription: ''
       } as Task;
 
       this.taskService.agregarTarea(nueva);
@@ -109,17 +118,56 @@ export class TasksComponent implements OnInit {
 
   cambiarEstado(tarea: Task) {
     this.taskService.actualizarTarea(tarea);
-
     const mensaje = this.translate.instant('TASKS.STATUS_UPDATED', {
       task: tarea.nombre,
       status: this.translate.instant(`TASKS.STATUS_VALUES.${tarea.estado}`),
     });
-
     this.snackBar.open(mensaje, '', {
       duration: 3000,
       verticalPosition: 'top',
       panelClass: ['custom-snackbar'],
     });
+  }
+
+  toggleProblema(tarea: Task) {
+    tarea.hasIssue = !tarea.hasIssue;
+    if (!tarea.hasIssue) {
+      tarea.issueDescription = '';
+    }
+    this.taskService.actualizarTarea(tarea);
+  }
+
+  ingresarProblema(tarea: Task) {
+    const descripcion = prompt(this.translate.instant('TASKS.PROBLEMS.ADD') + ':');
+    if (descripcion) {
+      tarea.hasIssue = true;
+      tarea.issueDescription = descripcion;
+      this.taskService.actualizarTarea(tarea);
+      this.snackBar.open(this.translate.instant('TASKS.PROBLEMS.ADD') + ' OK', '', {
+        duration: 2000,
+        panelClass: ['custom-snackbar'],
+      });
+    }
+  }
+
+  mostrarProblema(tarea: Task) {
+    if (tarea.hasIssue && tarea.issueDescription) {
+      alert(`${this.translate.instant('TASKS.PROBLEMS.SHOW')}: ${tarea.issueDescription}`);
+    } else {
+      alert(this.translate.instant('TASKS.PROBLEMS.SHOW') + ': (no data)');
+    }
+  }
+
+  eliminarProblema(tarea: Task) {
+    if (confirm(this.translate.instant('TASKS.PROBLEMS.DELETE') + '?')) {
+      tarea.hasIssue = false;
+      tarea.issueDescription = '';
+      this.taskService.actualizarTarea(tarea);
+      this.snackBar.open(this.translate.instant('TASKS.PROBLEMS.DELETE') + ' OK', '', {
+        duration: 2000,
+        panelClass: ['custom-snackbar'],
+      });
+    }
   }
 
   private generarId(): number {
