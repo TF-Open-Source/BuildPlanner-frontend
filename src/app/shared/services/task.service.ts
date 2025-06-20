@@ -32,6 +32,14 @@ export class TaskService {
     this.guardarEnLocalStorage();
   }
 
+  actualizarTarea(tareaActualizada: Task): void {
+    const index = this.tareas.findIndex(t => t.id === tareaActualizada.id);
+    if (index !== -1) {
+      this.tareas[index] = { ...tareaActualizada };
+      this.guardarEnLocalStorage();
+    }
+  }
+
   private guardarEnLocalStorage(): void {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(this.tareas));
   }

@@ -12,6 +12,7 @@ import { configurationsRoutes } from './features/components/configurations/confi
 
 import {TasksComponent} from './shared/components/tasks/tasks.component';
 import {TaskDetailsComponent} from './shared/components/task-details/task-details.component';
+import {DashboardComponent} from './features/components/dashboard/dashboard.component';
 
 
 export const routes: Routes = [

@@ -1,0 +1,37 @@
+<section class="dashboard-container">
+  <h1>{{ 'DASHBOARD.TITLE' | translate }}</h1>
+
+  <!-- Resumen de tareas por estado -->
+  <div class="summary-cards">
+    <div class="summary-card pending">
+      <span class="summary-count">{{ totalPendientes }}</span>
+      <span class="summary-label">{{ 'TASKS.STATUS_VALUES.PENDING' | translate }}</span>
+    </div>
+    <div class="summary-card in-progress">
+      <span class="summary-count">{{ totalEnProgreso }}</span>
+      <span class="summary-label">{{ 'TASKS.STATUS_VALUES.IN_PROGRESS' | translate }}</span>
+    </div>
+    <div class="summary-card completed">
+      <span class="summary-count">{{ totalCompletadas }}</span>
+      <span class="summary-label">{{ 'TASKS.STATUS_VALUES.COMPLETED' | translate }}</span>
+    </div>
+  </div>
+
+  <!-- Listado por obrero -->
+  <div class="dashboard-content">
+    <div class="worker-card" *ngFor="let grupo of tareasAgrupadas">
+      <h3>{{ grupo.obrero }}</h3>
+      <ul>
+        <li *ngFor="let tarea of grupo.tareas">
+          {{ traducirNombreTarea(tarea.nombre) }} ({{ traducirEstado(tarea.estado) }})
+
+          <div *ngIf="tarea.hasIssue && tarea.issueDescription && tarea.issueDescription.trim().length > 0"
+               class="problema-linea">
+            <mat-icon color="warn">report</mat-icon>
+            <span class="problema-descripcion">🔧 {{ 'TASKS.PROBLEMS.SHOW' | translate }}: {{ tarea.issueDescription }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

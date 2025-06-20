@@ -10,4 +10,6 @@ export interface Task {
   prioridad: number;
   estado: 'PENDING' | 'IN_PROGRESS' | 'COMPLETED';
   assignedTo: ConstructionWorker;
+  hasIssue: boolean;
+  issueDescription?: string;
 }

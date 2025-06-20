@@ -137,6 +137,7 @@
     }
   },
   "TASKS": {
+    "STATUS_UPDATED": "La tarea '{{task}}' fue marcada como '{{status}}'",
     "BREADCRUMB": "Tareas",
     "SORT_BY": "Ordenar por",
     "NOTIFICATION": "Se ha asignado la tarea '{{task}}' a {{worker}}.",
@@ -148,6 +149,11 @@
       "PENDING": "Pendiente",
       "IN_PROGRESS": "En progreso",
       "COMPLETED": "Completada"
+    },
+    "PROBLEMS": {
+      "ADD": "Ingresar problema",
+      "SHOW": "Mostrar problema",
+      "DELETE": "Eliminar problema"
     },
     "ISSUES": "Problemas",
     "DETAILS": "Detalles",
@@ -191,7 +197,10 @@
   },
   "FOOTER": {
     "RIGHTS": "Todos los derechos reservados."
-  }
+  },
 
+  "DASHBOARD": {
+    "TITLE": "Tareas asignadas por obrero"
+  }
 
 }

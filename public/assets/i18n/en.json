@@ -138,6 +138,7 @@
     }
   },
   "TASKS": {
+    "STATUS_UPDATED": "Task '{{task}}' marked as '{{status}}'",
     "BREADCRUMB": "Tasks",
     "NOTIFICATION": "Task '{{task}}' has been assigned to {{worker}}.",
     "SORT_BY": "Sort by",
@@ -168,6 +169,11 @@
       "REVIEW_PLANS": "Review Plans"
     }
   },
+  "PROBLEMS": {
+    "ADD": "Add problem",
+    "SHOW": "Show problem",
+    "DELETE": "Delete problem"
+  },
   "TASK_DETAILS": {
     "BREADCRUMB": "Home > Tasks > Description",
     "NUMBER": "No.",
@@ -192,6 +198,9 @@
   },
   "FOOTER": {
     "RIGHTS": "All rights reserved."
+  },
+  "DASHBOARD": {
+    "TITLE": "Assigned Tasks by Worker"
   }
 
 }
