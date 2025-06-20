@@ -33,6 +33,11 @@ export class HeaderComponent {
     this.router.navigate(['/configurations']);
   }
 
+  logout(): void {
+    localStorage.removeItem('user'); // simula limpiar sesión
+    this.router.navigate(['']);
+  }
+
   switchLang(lang: string): void {
     this.translate.use(lang);
     localStorage.setItem('lang', lang);

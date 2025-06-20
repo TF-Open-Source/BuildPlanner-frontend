@@ -40,6 +40,7 @@ export class LoginComponent {
         console.log('Login data:', this.loginForm.value);
         this.isLoading = false;
       }, 2000);
+      this.router.navigate(['/home']);
     }
   }
   switchLang(lang: string): void {

@@ -240,7 +240,8 @@
     "HOME": "Home",
     "TASKS": "Tasks",
     "DASHBOARDS": "Dashboards",
-    "SEARCH": "Search"
+    "SEARCH": "Search",
+    "LOGOUT": "Logout"
   },
   "FOOTER": {
     "RIGHTS": "All rights reserved."

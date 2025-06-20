@@ -32,6 +32,7 @@ export class RegisterComponent {
   onSubmit() {
     if (this.registerForm.valid) {
       console.log('Formulario válido:', this.registerForm.value);
+      this.router.navigate(['/home']);
     } else {
       this.registerForm.markAllAsTouched();
     }

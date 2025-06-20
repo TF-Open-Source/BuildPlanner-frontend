@@ -4,10 +4,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
-import {LoginComponent} from './auth/login/login.component';
-import {RegisterComponent} from './auth/register/register.component';
 
 @Component({
   selector: 'app-root',
@@ -22,16 +20,19 @@ import {RegisterComponent} from './auth/register/register.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isInitialPage = false;
+  showHeader = true;
 
   constructor(private translate: TranslateService, private router: Router) {
+    // Cargar idioma
     const browserLang = localStorage.getItem('lang') || translate.getBrowserLang();
     translate.use(browserLang?.match(/en|es/) ? browserLang : 'es');
 
+    // Detectar rutas públicas
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        this.isInitialPage = event.urlAfterRedirects === '/';
+        const publicRoutes = ['/', '/login', '/register'];
+        this.showHeader = !publicRoutes.includes(event.urlAfterRedirects);
       });
   }
 
@@ -43,7 +44,4 @@ export class AppComponent {
   currentLang(): string {
     return this.translate.currentLang;
   }
-
-  protected readonly LoginComponent = LoginComponent;
-  protected readonly RegisterComponent = RegisterComponent;
 }

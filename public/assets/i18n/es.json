@@ -239,7 +239,8 @@
     "HOME": "Inicio",
     "TASKS": "Tareas",
     "DASHBOARDS": "Tableros",
-    "SEARCH": "Buscar"
+    "SEARCH": "Buscar",
+    "LOGOUT": "Cerrar sesión"
   },
   "FOOTER": {
     "RIGHTS": "Todos los derechos reservados."
