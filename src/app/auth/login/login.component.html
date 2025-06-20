@@ -1,32 +1,45 @@
+<header class="header">
+  <div class="logo">BuildPlanning</div>
+  <li class="user-menu-item language-switch">
+    <button class="lang-btn" (click)="switchLang('es')" [disabled]="currentLang() === 'es'" title="Español">🇪🇸</button>
+    <button class="lang-btn" (click)="switchLang('en')" [disabled]="currentLang() === 'en'" title="English">🇺🇸</button>
+  </li>
+  <div class="actions">
+    <button routerLink="/login">{{ 'INITIAL.LOGIN' | translate }}</button>
+    <button routerLink="/register">{{ 'INITIAL.REGISTER' | translate }}</button>
+  </div>
+</header>
+
 <div class="container">
   <div class="card">
-    <h2 class="card-title">Iniciar Sesión</h2>
+    <h2 class="card-title">{{ 'LOGIN.TITLE' | translate }}</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+
       <!-- Email Field -->
       <mat-form-field appearance="outline" class="w-full">
-        <mat-label>Correo Electrónico</mat-label>
-        <input matInput type="email" formControlName="email" placeholder="tu@correo.com" required>
+        <mat-label>{{ 'LOGIN.EMAIL_LABEL' | translate }}</mat-label>
+        <input matInput type="email" formControlName="email" [placeholder]="'LOGIN.EMAIL_PLACEHOLDER' | translate" required>
         <mat-icon matPrefix class="text-gray-500">email</mat-icon>
         <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">
-          El correo es obligatorio
+          {{ 'LOGIN.EMAIL_REQUIRED' | translate }}
         </mat-error>
         <mat-error *ngIf="loginForm.get('email')?.errors?.['email']">
-          Ingresa un correo válido
+          {{ 'LOGIN.EMAIL_INVALID' | translate }}
         </mat-error>
       </mat-form-field>
 
       <!-- Password Field -->
       <mat-form-field appearance="outline" class="w-full">
-        <mat-label>Contraseña</mat-label>
+        <mat-label>{{ 'LOGIN.PASSWORD_LABEL' | translate }}</mat-label>
         <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
         <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
           <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>
         <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
-          La contraseña es obligatoria
+          {{ 'LOGIN.PASSWORD_REQUIRED' | translate }}
         </mat-error>
         <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">
-          La contraseña debe tener al menos 8 caracteres
+          {{ 'LOGIN.PASSWORD_MINLENGTH' | translate }}
         </mat-error>
       </mat-form-field>
 
@@ -34,30 +47,26 @@
       <div class="rem-forg form-inline flex items-center justify-between mb-4">
         <div>
           <input type="checkbox" name="remember" id="remember">
-          <label for="remember" class="text-muted ml-2">Remember me</label>
+          <label for="remember" class="text-muted ml-2">{{ 'LOGIN.REMEMBER_ME' | translate }}</label>
         </div>
         <a href="/forgot-password" id="forgot" class="link font-weight-bold text-blue-600 hover:underline">
-          Forgot password?
+          {{ 'LOGIN.FORGOT_PASSWORD' | translate }}
         </a>
       </div>
 
-
       <!-- Submit Button -->
-      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading"
-              class="button-class">
-        <span *ngIf="!isLoading">Iniciar Sesión</span>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading" class="button-class">
+        <span *ngIf="!isLoading">{{ 'LOGIN.SUBMIT' | translate }}</span>
         <mat-spinner *ngIf="isLoading" diameter="24" class="spinner"></mat-spinner>
       </button>
-
     </form>
 
-    <!-- register Link -->
+    <!-- Register Link -->
     <div class="link-container">
-        Don't have an account?
-      <a routerLink = "/register" class="link">
-        Sign up
+      {{ 'LOGIN.NO_ACCOUNT' | translate }}
+      <a routerLink="/register" class="link">
+        {{ 'LOGIN.SIGN_UP' | translate }}
       </a>
     </div>
-
   </div>
 </div>

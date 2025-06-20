@@ -1,4 +1,50 @@
 {
+  "INITIAL": {
+    "LOGIN": "Iniciar sesión",
+    "REGISTER": "Regístrate",
+    "TITLE": "Gestión inteligente para tus proyectos",
+    "SUBTITLE": "Optimiza el trabajo de tus obreros, administra tareas y mejora el seguimiento de obras en tiempo real.",
+    "FEATURES": {
+      "PLANNING": "Planificación de actividades por cuadrilla",
+      "DAILY_PROGRESS": "Registro de avances diarios",
+      "ALERTS": "Alertas y seguimiento de tareas"
+    },
+    "START_NOW": "Empieza ahora"
+  },
+  "LOGIN": {
+    "TITLE": "Iniciar Sesión",
+    "EMAIL_LABEL": "Correo Electrónico",
+    "EMAIL_PLACEHOLDER": "tu@correo.com",
+    "EMAIL_REQUIRED": "El correo es obligatorio",
+    "EMAIL_INVALID": "Ingresa un correo válido",
+    "PASSWORD_LABEL": "Contraseña",
+    "PASSWORD_REQUIRED": "La contraseña es obligatoria",
+    "PASSWORD_MINLENGTH": "La contraseña debe tener al menos 8 caracteres",
+    "REMEMBER_ME": "Recuérdame",
+    "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
+    "SUBMIT": "Iniciar Sesión",
+    "NO_ACCOUNT": "¿No tienes una cuenta?",
+    "SIGN_UP": "Regístrate"
+  },
+  "REGISTER": {
+    "FULL_NAME": "Nombre completo",
+    "EMAIL": "Correo electrónico",
+    "PHONE": "Celular",
+    "DNI": "DNI",
+    "PASSWORD": "Contraseña",
+    "AGE": "Edad",
+    "GENDER": {
+      "LABEL": "Sexo",
+      "MALE": "Masculino",
+      "FEMALE": "Femenino",
+      "OTHER": "Otro"
+    },
+    "TERMS": "Aceptar términos y condiciones",
+    "SUBMIT": "Crear cuenta",
+    "HAVE_ACCOUNT": "¿Tiene una cuenta?",
+    "LOGIN_LINK": "Inicia sesión"
+  },
+
   "CONFIG": {
     "TITLE": "CONFIGURACIONES",
     "TITLE_NOTIFICATIONS": "Configuración de Notificaciones",

@@ -1,4 +1,50 @@
 {
+  "INITIAL": {
+    "LOGIN": "Log in",
+    "REGISTER": "Sign up",
+    "TITLE": "Smart management for your projects",
+    "SUBTITLE": "Optimize worker performance, manage tasks, and track construction progress in real time.",
+    "FEATURES": {
+      "PLANNING": "Crew-based activity planning",
+      "DAILY_PROGRESS": "Daily progress tracking",
+      "ALERTS": "Task alerts and monitoring"
+    },
+    "START_NOW": "Start now"
+  },
+  "LOGIN": {
+    "TITLE": "Log In",
+    "EMAIL_LABEL": "Email",
+    "EMAIL_PLACEHOLDER": "your@email.com",
+    "EMAIL_REQUIRED": "Email is required",
+    "EMAIL_INVALID": "Enter a valid email",
+    "PASSWORD_LABEL": "Password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "PASSWORD_MINLENGTH": "Password must be at least 8 characters",
+    "REMEMBER_ME": "Remember me",
+    "FORGOT_PASSWORD": "Forgot password?",
+    "SUBMIT": "Log In",
+    "NO_ACCOUNT": "Don't have an account?",
+    "SIGN_UP": "Sign up"
+  },
+  "REGISTER": {
+    "FULL_NAME": "Full name",
+    "EMAIL": "Email",
+    "PHONE": "Phone",
+    "DNI": "ID",
+    "PASSWORD": "Password",
+    "AGE": "Age",
+    "GENDER": {
+      "LABEL": "Gender",
+      "MALE": "Male",
+      "FEMALE": "Female",
+      "OTHER": "Other"
+    },
+    "TERMS": "Accept terms and conditions",
+    "SUBMIT": "Create account",
+    "HAVE_ACCOUNT": "Already have an account?",
+    "LOGIN_LINK": "Log in"
+  },
+
   "CONFIG": {
     "TITLE": "CONFIGURATIONS",
     "TITLE_NOTIFICATIONS": "Notification Settings",

@@ -6,6 +6,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import {CommonModule} from '@angular/common';
 import { filter } from 'rxjs/operators';
+import {LoginComponent} from './auth/login/login.component';
+import {RegisterComponent} from './auth/register/register.component';
 
 @Component({
   selector: 'app-root',
@@ -41,4 +43,7 @@ export class AppComponent {
   currentLang(): string {
     return this.translate.currentLang;
   }
+
+  protected readonly LoginComponent = LoginComponent;
+  protected readonly RegisterComponent = RegisterComponent;
 }

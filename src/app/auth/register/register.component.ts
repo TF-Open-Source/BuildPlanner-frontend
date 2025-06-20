@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   imports: [
     ReactiveFormsModule,
-    RouterLink
+    RouterLink,
+    TranslatePipe
   ],
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router, private translate: TranslateService) {
     this.registerForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -33,5 +35,13 @@ export class RegisterComponent {
     } else {
       this.registerForm.markAllAsTouched();
     }
+  }
+  switchLang(lang: string): void {
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang);
+  }
+
+  currentLang(): string {
+    return this.translate.currentLang;
   }
 }

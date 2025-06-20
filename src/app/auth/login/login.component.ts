@@ -7,11 +7,12 @@ import {MatIcon} from '@angular/material/icon';
 import {MatProgressSpinner} from '@angular/material/progress-spinner';
 import {MatError} from '@angular/material/input';
 import {MatLabel} from '@angular/material/input';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
-  imports: [MatButtonModule, ReactiveFormsModule, MatFormField, MatIcon, MatInput, NgIf, MatProgressSpinner, MatError, MatLabel, RouterLink],
+  imports: [MatButtonModule, ReactiveFormsModule, MatFormField, MatIcon, MatInput, NgIf, MatProgressSpinner, MatError, MatLabel, RouterLink, TranslatePipe],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -20,7 +21,7 @@ export class LoginComponent {
   hidePassword = true;
   isLoading = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private translate: TranslateService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -40,5 +41,13 @@ export class LoginComponent {
         this.isLoading = false;
       }, 2000);
     }
+  }
+  switchLang(lang: string): void {
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang);
+  }
+
+  currentLang(): string {
+    return this.translate.currentLang;
   }
 }
