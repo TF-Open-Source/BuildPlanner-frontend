@@ -1,0 +1,20 @@
+<div class="grid">
+  <div class="worker-card" *ngFor="let worker of workers">
+    <div class="circle-avatar"></div>
+    <button (click)="openModal(worker)">
+      {{ worker.name }}
+    </button>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="selectedWorker">
+  <div class="modal">
+    <h3>Detalles del trabajador</h3>
+    <p><strong>Nombre:</strong> {{ selectedWorker.name }}</p>
+    <p><strong>Edad:</strong> {{ selectedWorker.age }}</p>
+    <p><strong>DNI:</strong> {{ selectedWorker.dni }}</p>
+    <p><strong>Estatus:</strong> {{ selectedWorker.status }}</p>
+    <button class="send" (click)="sendMessage()">Enviar mensaje</button>
+    <button class="close" (click)="closeModal()">Cerrar</button>
+  </div>
+</div>

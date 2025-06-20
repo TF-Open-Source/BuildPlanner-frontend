@@ -3,6 +3,8 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import {HomeComponent} from './features/components/home/home.component';
+import {InitialPageComponent} from './features/components/initial-page/initial-page.component';
+import {PersonalComponent} from './features/components/personal/personal.component';
 import {AccountComponent} from './features/components/account/account.component';
 import { accountRoutes } from './features/components/account/account.routes';
 
@@ -13,10 +15,12 @@ import {TaskDetailsComponent} from './shared/components/task-details/task-detail
 
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: InitialPageComponent},
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
+  {path: 'login', component: LoginComponent},
+  { path: 'dashboards', component: HomeComponent },
   {path: 'tasks', component: TasksComponent},
+  {path: 'personal', component: PersonalComponent},
   {path: 'task-details/:id', component: TaskDetailsComponent},
   ...accountRoutes,
   ...configurationsRoutes,
