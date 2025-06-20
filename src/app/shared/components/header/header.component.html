@@ -6,13 +6,13 @@
 
     <ul class="menu">
       <li class="item-menu">
-        <a mat-flat-button routerLink="/home">{{ 'HEADER.HOME' | translate }}</a>
+        <a mat-flat-button routerLink="/dashboards">{{ 'HEADER.DASHBOARDS' | translate }}</a>
       </li>
       <li class="item-menu">
         <a mat-flat-button routerLink="/tasks">{{ 'HEADER.TASKS' | translate }}</a>
       </li>
       <li class="item-menu">
-        <a mat-flat-button routerLink="/dashboard">{{ 'HEADER.DASHBOARDS' | translate }}</a>
+        <a mat-flat-button routerLink="/personal">Personal</a>
       </li>
     </ul>
   </div>
@@ -23,7 +23,6 @@
 
   <div class="user-menu">
     <ul class="menu">
-      <!-- Idioma -->
       <li class="user-menu-item language-switch">
         <button class="lang-btn" (click)="switchLang('es')" [disabled]="currentLang() === 'es'" title="Español">🇪🇸</button>
         <button class="lang-btn" (click)="switchLang('en')" [disabled]="currentLang() === 'en'" title="English">🇺🇸</button>

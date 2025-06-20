@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="logo">BuildPlanning</div>
+  <div class="actions">
+    <button routerLink="/login">Iniciar sesión</button>
+    <button routerLink="/register">Regístrate</button>
+  </div>
+</header>
+
+<main class="main-content">
+  <div class="hero-section">
+    <img [src]="images[currentImageIndex]" alt="Imagen destacada" />
+  </div>
+
+  <div class="features-section">
+    <h1>Gestión inteligente para tus proyectos</h1>
+    <p>Optimiza el trabajo de tus obreros, administra tareas y mejora el seguimiento de obras en tiempo real.</p>
+
+    <ul class="features-list">
+      <li>✔ Planificación de actividades por cuadrilla</li>
+      <li>✔ Registro de avances diarios</li>
+      <li>✔ Alertas y seguimiento de tareas</li>
+    </ul>
+
+    <button class="cta-button" routerLink="/register">Empieza ahora</button>
+  </div>
+</main>
