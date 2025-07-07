@@ -15,7 +15,7 @@ export class AuthService {
     );
   }
 
-  register(user: { email: string, password: string, userType: string }) {
+  register(user: any) {
     return this.http.post(
       `${this.apiUrl}/registro`,
       user

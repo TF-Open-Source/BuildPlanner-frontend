@@ -9,6 +9,7 @@
     <button routerLink="/register">{{ 'INITIAL.REGISTER' | translate }}</button>
   </div>
 </header>
+
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <input type="email" formControlName="email" placeholder="Correo electrónico" required>
   <input type="password" formControlName="password" placeholder="Contraseña" required minlength="8">
@@ -16,9 +17,17 @@
     <option value="">Selecciona tipo de usuario</option>
     <option value="JEFE">Jefe</option>
     <option value="OBRERO">Obrero</option>
-    <!-- Agrega más opciones si tienes otros tipos -->
   </select>
-  <button type="submit" [disabled]="isLoading">Registrar</button>
+  <input type="text" formControlName="firstName" placeholder="Nombre" required>
+  <input type="text" formControlName="lastName" placeholder="Apellido" required>
+  <input type="text" formControlName="dni" placeholder="DNI (8 dígitos)" maxlength="8" required>
+  <input type="text" formControlName="phone" placeholder="Celular (9 dígitos)" maxlength="9" required>
+  <select formControlName="gender" required>
+    <option value="">Selecciona sexo</option>
+    <option value="M">Masculino</option>
+    <option value="F">Femenino</option>
+  </select>
+  <button type="submit" [disabled]="isLoading || !registerForm.valid">Registrar</button>
   <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
   <div *ngIf="successMsg" class="success">{{ successMsg }}</div>
 </form>
