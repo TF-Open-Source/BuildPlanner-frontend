@@ -21,6 +21,13 @@ export class WorkerService {
   getWorkers(): Observable<ConstructionWorker[]> {
     return this.http.get<ConstructionWorker[]>(this.apiUrl);
   }
-
-  // Opcional: más métodos (crear, actualizar, borrar) si los necesitas
+  createWorker(worker: Partial<ConstructionWorker>): Observable<ConstructionWorker> {
+    return this.http.post<ConstructionWorker>(this.apiUrl, worker);
+  }
+  updateWorker(id: number, worker: Partial<ConstructionWorker>): Observable<ConstructionWorker> {
+    return this.http.put<ConstructionWorker>(`${this.apiUrl}/${id}`, worker);
+  }
+  deleteWorker(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
