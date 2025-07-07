@@ -1,54 +1,33 @@
 <header class="header">
   <div class="logo">BuildPlanning</div>
-
   <li class="user-menu-item language-switch">
-    <button
-      class="lang-btn"
-      (click)="switchLang('es')"
-      [disabled]="currentLang() === 'es'"
-      title="Español"
-    >🇪🇸</button>
-    <button
-      class="lang-btn"
-      (click)="switchLang('en')"
-      [disabled]="currentLang() === 'en'"
-      title="English"
-    >🇺🇸</button>
+    <button class="lang-btn" (click)="switchLang('es')" [disabled]="currentLang() === 'es'" title="Español">🇪🇸</button>
+    <button class="lang-btn" (click)="switchLang('en')" [disabled]="currentLang() === 'en'" title="English">🇺🇸</button>
   </li>
-
   <div class="actions">
     <button routerLink="/login">{{ 'INITIAL.LOGIN' | translate }}</button>
     <button routerLink="/register">{{ 'INITIAL.REGISTER' | translate }}</button>
   </div>
 </header>
 
-<div class="register-container">
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <input formControlName="fullName" [placeholder]="'REGISTER.FULL_NAME' | translate" />
-    <input formControlName="email" [placeholder]="'REGISTER.EMAIL' | translate" />
-    <input formControlName="phone" [placeholder]="'REGISTER.PHONE' | translate" />
-    <input formControlName="dni" [placeholder]="'REGISTER.DNI' | translate" />
-    <input type="password" formControlName="password" [placeholder]="'REGISTER.PASSWORD' | translate" />
-    <input type="number" formControlName="age" [placeholder]="'REGISTER.AGE' | translate" />
-
-    <select formControlName="gender">
-      <option value="" disabled selected>{{ 'REGISTER.GENDER.LABEL' | translate }}</option>
-      <option value="M">{{ 'REGISTER.GENDER.MALE' | translate }}</option>
-      <option value="F">{{ 'REGISTER.GENDER.FEMALE' | translate }}</option>
-      <option value="O">{{ 'REGISTER.GENDER.OTHER' | translate }}</option>
-    </select>
-
-    <label class="terms">
-      <input type="checkbox" formControlName="terms" />
-      {{ 'REGISTER.TERMS' | translate }}
-    </label>
-
-    <!-- ✅ Redirección controlada desde TypeScript -->
-    <button type="submit">{{ 'REGISTER.SUBMIT' | translate }}</button>
-
-    <p class="login-link">
-      {{ 'REGISTER.HAVE_ACCOUNT' | translate }}
-      <a routerLink="/login">{{ 'REGISTER.LOGIN_LINK' | translate }}</a>
-    </p>
-  </form>
-</div>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <input type="email" formControlName="email" placeholder="Correo electrónico" required>
+  <input type="password" formControlName="password" placeholder="Contraseña" required minlength="8">
+  <select formControlName="userType" required>
+    <option value="">Selecciona tipo de usuario</option>
+    <option value="JEFE">Jefe</option>
+    <option value="OBRERO">Obrero</option>
+  </select>
+  <input type="text" formControlName="firstName" placeholder="Nombre" required>
+  <input type="text" formControlName="lastName" placeholder="Apellido" required>
+  <input type="text" formControlName="dni" placeholder="DNI (8 dígitos)" maxlength="8" required>
+  <input type="text" formControlName="phone" placeholder="Celular (9 dígitos)" maxlength="9" required>
+  <select formControlName="gender" required>
+    <option value="">Selecciona sexo</option>
+    <option value="M">Masculino</option>
+    <option value="F">Femenino</option>
+  </select>
+  <button type="submit" [disabled]="isLoading || !registerForm.valid">Registrar</button>
+  <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+  <div *ngIf="successMsg" class="success">{{ successMsg }}</div>
+</form>

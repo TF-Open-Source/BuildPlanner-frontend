@@ -1,12 +1,14 @@
-:host {
+form {
+  max-width: 360px;
+  margin: 48px auto;
+  padding: 32px 24px 24px 24px;
+  background: #f8fafc;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(27, 74, 138, 0.10);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f0f6fb;
-  color: #1e3a5f;
+  gap: 18px;
 }
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -32,7 +34,6 @@
   cursor: pointer;
   font-weight: 500;
 }
-
 .actions button:hover {
   background-color: #1565c0;
 }
@@ -99,49 +100,61 @@
 .lang-btn:hover:not(:disabled) {
   background-color: rgba(255, 255, 255, 0.1);
 }
-
-.register-container {
-  background-color: #e0e0e0;
-  padding: 30px;
-  width: 300px;
-  border-radius: 20px;
-  margin: 40px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 input, select {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #c1c1c1;
+  padding: 12px;
+  border: 1.5px solid #94a3b8;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #f1f5fa;
+  transition: border 0.2s;
 }
 
-button {
-  background-color: #888;
-  color: white;
-  padding: 10px;
+input:focus, select:focus {
+  border: 1.5px solid #1e40af;
+  outline: none;
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg, #2563eb 40%, #1e40af 100%);
+  color: #fff;
+  padding: 12px;
   border: none;
-  border-radius: 20px;
-  margin-top: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
   cursor: pointer;
-}
-
-.terms {
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-
-.login-link {
-  text-align: center;
-  font-size: 12px;
+  transition: background 0.3s;
   margin-top: 10px;
+}
+
+button[disabled], button:disabled {
+  background: #bfcad9;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #dc2626;
+  background: #fee2e2;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: -6px;
+  font-size: 0.97rem;
+}
+
+.success {
+  color: #059669;
+  background: #d1fae5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: -6px;
+  font-size: 0.97rem;
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  form {
+    padding: 16px 6px;
+    max-width: 95vw;
+  }
 }
