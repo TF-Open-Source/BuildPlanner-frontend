@@ -15,6 +15,13 @@ export class AuthService {
     );
   }
 
+  register(user: { email: string, password: string, userType: string }) {
+    return this.http.post(
+      `${this.apiUrl}/registro`,
+      user
+    );
+  }
+
   logout() {
     localStorage.clear();
     this.router.navigate(['/login']);
