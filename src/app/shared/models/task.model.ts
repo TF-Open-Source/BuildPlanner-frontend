@@ -12,4 +12,6 @@ export interface Task {
   assignedTo: ConstructionWorker;
   hasIssue: boolean;
   issueDescription?: string;
+  descripcion?: string;
+  fechaInicio?: string;
 }

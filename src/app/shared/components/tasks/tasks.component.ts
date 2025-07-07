@@ -47,9 +47,10 @@ export class TasksComponent implements OnInit {
     prioridad: 1,
     estado: 'PENDING',
     assignedTo: undefined,
+
   };
 
-  tareaSeleccionada!: Task; // para el menú contextual de problemas
+  tareaSeleccionada!: Task;
 
   constructor(
     private taskService: TaskService,
@@ -59,24 +60,30 @@ export class TasksComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.tareas.data = this.taskService.getTareas();
-    this.obreros = this.taskService.getObreros();
+    this.obtenerTareas();
+    this.obtenerObreros();
   }
 
   ngAfterViewInit() {
     this.tareas.paginator = this.paginator;
   }
 
+  obtenerTareas() {
+    this.taskService.getTareas().subscribe(tareas => {
+      this.tareas.data = tareas;
+    });
+  }
+
+  obtenerObreros() {
+    this.taskService.getObreros().subscribe(obreros => {
+      this.obreros = obreros;
+    });
+  }
+
   traducirNombreTarea(nombre: string): string {
     const key = `TASKS.NAMES.${nombre}`;
     const traducido = this.translate.instant(key);
     return traducido === key ? nombre : traducido;
-  }
-
-  traducirEstado(estado: string): string {
-    const key = `TASKS.STATUS_VALUES.${estado}`;
-    const traducido = this.translate.instant(key);
-    return traducido === key ? estado : traducido;
   }
 
   asignarTarea() {
@@ -87,54 +94,45 @@ export class TasksComponent implements OnInit {
     ) {
       const nueva = {
         ...this.nuevaTarea,
-        id: this.generarId(),
         hasIssue: false,
         issueDescription: ''
       } as Task;
 
-      this.taskService.agregarTarea(nueva);
-      this.tareas.data = this.taskService.getTareas();
-      this.tareas.paginator = this.paginator;
+      this.taskService.agregarTarea(nueva).subscribe(() => {
+        this.obtenerTareas();
+        const mensaje = this.translate.instant('TASKS.NOTIFICATION', {
+          task: nueva.nombre,
+          worker: nueva.assignedTo?.name,
+        });
 
-      const mensaje = this.translate.instant('TASKS.NOTIFICATION', {
-        task: nueva.nombre,
-        worker: nueva.assignedTo?.name,
+        this.snackBar.open(mensaje, '', {
+          duration: 4000,
+          verticalPosition: 'top',
+          horizontalPosition: 'center',
+          panelClass: ['custom-snackbar'],
+        });
+
+        this.reiniciarFormulario();
       });
-
-      this.snackBar.open(mensaje, '', {
-        duration: 4000,
-        verticalPosition: 'top',
-        horizontalPosition: 'center',
-        panelClass: ['custom-snackbar'],
-      });
-
-      this.reiniciarFormulario();
     }
   }
 
   cambiarPrioridad(tarea: Task) {
-    this.taskService.actualizarTarea(tarea);
+    this.taskService.actualizarTarea(tarea).subscribe();
   }
 
   cambiarEstado(tarea: Task) {
-    this.taskService.actualizarTarea(tarea);
-    const mensaje = this.translate.instant('TASKS.STATUS_UPDATED', {
-      task: tarea.nombre,
-      status: this.translate.instant(`TASKS.STATUS_VALUES.${tarea.estado}`),
+    this.taskService.actualizarTarea(tarea).subscribe(() => {
+      const mensaje = this.translate.instant('TASKS.STATUS_UPDATED', {
+        task: tarea.nombre,
+        status: this.translate.instant(`TASKS.STATUS_VALUES.${tarea.estado}`),
+      });
+      this.snackBar.open(mensaje, '', {
+        duration: 3000,
+        verticalPosition: 'top',
+        panelClass: ['custom-snackbar'],
+      });
     });
-    this.snackBar.open(mensaje, '', {
-      duration: 3000,
-      verticalPosition: 'top',
-      panelClass: ['custom-snackbar'],
-    });
-  }
-
-  toggleProblema(tarea: Task) {
-    tarea.hasIssue = !tarea.hasIssue;
-    if (!tarea.hasIssue) {
-      tarea.issueDescription = '';
-    }
-    this.taskService.actualizarTarea(tarea);
   }
 
   ingresarProblema(tarea: Task) {
@@ -142,10 +140,11 @@ export class TasksComponent implements OnInit {
     if (descripcion) {
       tarea.hasIssue = true;
       tarea.issueDescription = descripcion;
-      this.taskService.actualizarTarea(tarea);
-      this.snackBar.open(this.translate.instant('TASKS.PROBLEMS.ADD') + ' OK', '', {
-        duration: 2000,
-        panelClass: ['custom-snackbar'],
+      this.taskService.actualizarTarea(tarea).subscribe(() => {
+        this.snackBar.open(this.translate.instant('TASKS.PROBLEMS.ADD') + ' OK', '', {
+          duration: 2000,
+          panelClass: ['custom-snackbar'],
+        });
       });
     }
   }
@@ -162,17 +161,13 @@ export class TasksComponent implements OnInit {
     if (confirm(this.translate.instant('TASKS.PROBLEMS.DELETE') + '?')) {
       tarea.hasIssue = false;
       tarea.issueDescription = '';
-      this.taskService.actualizarTarea(tarea);
-      this.snackBar.open(this.translate.instant('TASKS.PROBLEMS.DELETE') + ' OK', '', {
-        duration: 2000,
-        panelClass: ['custom-snackbar'],
+      this.taskService.actualizarTarea(tarea).subscribe(() => {
+        this.snackBar.open(this.translate.instant('TASKS.PROBLEMS.DELETE') + ' OK', '', {
+          duration: 2000,
+          panelClass: ['custom-snackbar'],
+        });
       });
     }
-  }
-
-  private generarId(): number {
-    const data = this.tareas.data;
-    return data.length > 0 ? Math.max(...data.map((t) => t.id)) + 1 : 1;
   }
 
   reiniciarFormulario() {

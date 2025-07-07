@@ -1,25 +1,35 @@
 <section class="task-details-container">
   <h1 class="page-title">{{ 'TASK_DETAILS.BREADCRUMB' | translate }}</h1>
 
-  <div class="task-info">
-    <div><strong>{{ 'TASK_DETAILS.NUMBER' | translate }}</strong></div>
-    <div>{{ tarea.id }}</div>
+  <ng-container *ngIf="tarea; else cargando">
+    <div class="task-info">
+      <div><strong>{{ 'TASK_DETAILS.NUMBER' | translate }}</strong></div>
+      <div>{{ tarea.id }}</div>
 
-    <div><strong>{{ 'TASK_DETAILS.TASK' | translate }}</strong></div>
-    <div>{{ 'TASKS.NAMES.' + tarea.nombre | translate }}</div>
+      <div><strong>{{ 'TASK_DETAILS.TASK' | translate }}</strong></div>
+      <div>{{ 'TASKS.NAMES.' + tarea.nombre | translate }}</div>
 
-    <div><strong>{{ 'TASK_DETAILS.DESCRIPTION_TITLE' | translate }}</strong></div>
-    <div class="description-content">{{ tarea.descripcion | translate }}</div>
+      <div><strong>{{ 'TASK_DETAILS.DESCRIPTION_TITLE' | translate }}</strong></div>
+      <div class="description-content">
+        {{ tarea.descripcion ? (tarea.descripcion | translate) : ('TASK_DETAILS.NO_DESCRIPTION' | translate) }}
+      </div>
 
-    <div><strong>{{ 'TASK_DETAILS.START_DATE' | translate }}</strong></div>
-    <div>{{ tarea.fechaInicio }}</div>
+      <div><strong>{{ 'TASK_DETAILS.START_DATE' | translate }}</strong></div>
+      <div>{{ tarea.fechaInicio || ('TASK_DETAILS.NO_DATE' | translate) }}</div>
 
-    <div><strong>{{ 'TASK_DETAILS.DUE_DATE' | translate }}</strong></div>
-    <div>{{ tarea.fechaLimite }}</div>
+      <div><strong>{{ 'TASK_DETAILS.DUE_DATE' | translate }}</strong></div>
+      <div>{{ tarea.fechaLimite }}</div>
 
-    <div><strong>{{ 'TASK_DETAILS.PRIORITY' | translate }}</strong></div>
-    <div>{{ tarea.prioridad }}</div>
-  </div>
+      <div><strong>{{ 'TASK_DETAILS.PRIORITY' | translate }}</strong></div>
+      <div>{{ tarea.prioridad }}</div>
+    </div>
 
-  <button class="back-button" routerLink="/tasks">{{ 'TASK_DETAILS.BACK' | translate }}</button>
+    <button class="back-button" routerLink="/tasks">
+      {{ 'TASK_DETAILS.BACK' | translate }}
+    </button>
+  </ng-container>
+
+  <ng-template #cargando>
+    <p>{{ 'TASK_DETAILS.LOADING' | translate }}</p>
+  </ng-template>
 </section>

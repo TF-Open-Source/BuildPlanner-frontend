@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TaskService } from '../../../shared/services/task.service';
 import { Task } from '../../../shared/models/task.model';
-import {MatIcon} from '@angular/material/icon';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,34 +26,38 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const tareas = this.taskService.getTareas();
-    const agrupadas: { [obrero: string]: Task[] } = {};
+    this.taskService.getTareas().subscribe(tareas => {
+      const agrupadas: { [obrero: string]: Task[] } = {};
 
-    for (const tarea of tareas) {
-      const nombreObrero = tarea.assignedTo?.name || 'Sin asignar';
-      if (!agrupadas[nombreObrero]) {
-        agrupadas[nombreObrero] = [];
+      this.totalPendientes = 0;
+      this.totalEnProgreso = 0;
+      this.totalCompletadas = 0;
+
+      for (const tarea of tareas) {
+        const nombreObrero = tarea.assignedTo?.name || 'Sin asignar';
+        if (!agrupadas[nombreObrero]) {
+          agrupadas[nombreObrero] = [];
+        }
+        agrupadas[nombreObrero].push(tarea);
+
+        switch (tarea.estado) {
+          case 'PENDING':
+            this.totalPendientes++;
+            break;
+          case 'IN_PROGRESS':
+            this.totalEnProgreso++;
+            break;
+          case 'COMPLETED':
+            this.totalCompletadas++;
+            break;
+        }
       }
-      agrupadas[nombreObrero].push(tarea);
 
-      // Contadores por estado
-      switch (tarea.estado) {
-        case 'PENDING':
-          this.totalPendientes++;
-          break;
-        case 'IN_PROGRESS':
-          this.totalEnProgreso++;
-          break;
-        case 'COMPLETED':
-          this.totalCompletadas++;
-          break;
-      }
-    }
-
-    this.tareasAgrupadas = Object.entries(agrupadas).map(([obrero, tareas]) => ({
-      obrero,
-      tareas
-    }));
+      this.tareasAgrupadas = Object.entries(agrupadas).map(([obrero, tareas]) => ({
+        obrero,
+        tareas
+      }));
+    });
   }
 
   traducirNombreTarea(nombre: string): string {
@@ -69,7 +73,6 @@ export class DashboardComponent implements OnInit {
 
   tieneProblema(tarea: Task): boolean {
     return tarea.hasIssue && (tarea.issueDescription ?? '').trim().length > 0;
-
   }
 
   descripcionProblema(tarea: Task): string {

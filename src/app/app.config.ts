@@ -4,6 +4,7 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 import { routes } from './app.routes';
 import { i18nProviders } from './translation.config';
+import {provideHttpClient} from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +18,7 @@ export const appConfig: ApplicationConfig = {
         horizontalPosition: 'center',
         verticalPosition: 'top'
       }
-    }
+    },
+    provideHttpClient()
   ]
 };

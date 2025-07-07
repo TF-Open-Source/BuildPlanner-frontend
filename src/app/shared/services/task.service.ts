@@ -1,53 +1,41 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Task, ConstructionWorker } from '../models/task.model';
+import { Observable } from 'rxjs';
 
-const STORAGE_KEY = 'ironTasks';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  private tareas: Task[] = [];
+  private apiUrl = 'http://localhost:8081/api/tasks';
+  private workersUrl = 'http://localhost:8081/api/workers'; // Asegúrate que el backend lo soporte
 
-  private obreros: ConstructionWorker[] = [
-    { id: 1, name: 'Juan Pérez' },
-    { id: 2, name: 'Ana Torres' },
-    { id: 3, name: 'Luis Ramos' }
-  ];
+  constructor(private http: HttpClient) {}
 
-  constructor() {
-    this.cargarDesdeLocalStorage();
+  getTareas(): Observable<Task[]> {
+    return this.http.get<Task[]>(this.apiUrl);
   }
 
-  getTareas(): Task[] {
-    return [...this.tareas];
+  getTareaPorId(id: number): Observable<Task> {
+    return this.http.get<Task>(`${this.apiUrl}/${id}`);
   }
 
-  getObreros(): ConstructionWorker[] {
-    return [...this.obreros];
+  agregarTarea(tarea: Task): Observable<Task> {
+    return this.http.post<Task>(this.apiUrl, tarea);
   }
 
-  agregarTarea(tarea: Task): void {
-    this.tareas.push(tarea);
-    this.guardarEnLocalStorage();
+  actualizarTarea(tarea: Task): Observable<Task> {
+    return this.http.put<Task>(`${this.apiUrl}/${tarea.id}`, tarea);
   }
 
-  actualizarTarea(tareaActualizada: Task): void {
-    const index = this.tareas.findIndex(t => t.id === tareaActualizada.id);
-    if (index !== -1) {
-      this.tareas[index] = { ...tareaActualizada };
-      this.guardarEnLocalStorage();
-    }
+  eliminarTarea(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  private guardarEnLocalStorage(): void {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(this.tareas));
-  }
-
-  private cargarDesdeLocalStorage(): void {
-    const data = localStorage.getItem(STORAGE_KEY);
-    if (data) {
-      this.tareas = JSON.parse(data);
-    }
+  getObreros(): Observable<ConstructionWorker[]> {
+    return this.http.get<ConstructionWorker[]>(this.workersUrl);
   }
 }
+
