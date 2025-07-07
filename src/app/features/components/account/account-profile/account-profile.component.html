@@ -1,0 +1,41 @@
+<h3>{{ 'ACCOUNT.PROFILE.TITLE' | translate }}</h3>
+
+<div *ngIf="isEditing" class="edit-mode-label">
+  <mat-icon>edit</mat-icon> {{ 'ACCOUNT.PROFILE.EDITING' | translate }}
+</div>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSave()">
+  <div class="profile-box" [class.edit-mode]="isEditing">
+    <div class="column">
+      <label>{{ 'ACCOUNT.PROFILE.FULL_NAME' | translate }}</label>
+      <input [value]="profileForm.get('fullName')?.value" readonly />
+
+      <label>{{ 'ACCOUNT.PROFILE.DNI' | translate }}</label>
+      <input [value]="profileForm.get('dni')?.value" readonly />
+
+      <label>{{ 'ACCOUNT.PROFILE.PHONE' | translate }}</label>
+      <input formControlName="phone" [readonly]="!isEditing" />
+    </div>
+
+    <div class="column">
+      <label>{{ 'ACCOUNT.PROFILE.AGE' | translate }}</label>
+      <input [value]="profileForm.get('age')?.value" readonly />
+
+      <label>{{ 'ACCOUNT.PROFILE.EMAIL' | translate }}</label>
+      <input formControlName="email" [readonly]="!isEditing" />
+
+      <label>{{ 'ACCOUNT.PROFILE.GENDER' | translate }}</label>
+      <input formControlName="gender" [readonly]="!isEditing" />
+    </div>
+  </div>
+
+  <div class="save-button-container">
+    <button mat-raised-button
+            [color]="isEditing ? 'primary' : 'accent'"
+            (click)="isEditing ? onSave() : onEdit()"
+            type="button"
+            [disabled]="isEditing && !profileForm.valid">
+      {{ isEditing ? ('ACCOUNT.PROFILE.SAVE' | translate) : ('ACCOUNT.PROFILE.EDIT' | translate) }}
+    </button>
+  </div>
+</form>

@@ -1,0 +1,254 @@
+{
+  "INITIAL": {
+    "LOGIN": "Log in",
+    "REGISTER": "Sign up",
+    "TITLE": "Smart management for your projects",
+    "SUBTITLE": "Optimize worker performance, manage tasks, and track construction progress in real time.",
+    "FEATURES": {
+      "PLANNING": "Crew-based activity planning",
+      "DAILY_PROGRESS": "Daily progress tracking",
+      "ALERTS": "Task alerts and monitoring"
+    },
+    "START_NOW": "Start now"
+  },
+  "LOGIN": {
+    "TITLE": "Log In",
+    "EMAIL_LABEL": "Email",
+    "EMAIL_PLACEHOLDER": "your@email.com",
+    "EMAIL_REQUIRED": "Email is required",
+    "EMAIL_INVALID": "Enter a valid email",
+    "PASSWORD_LABEL": "Password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "PASSWORD_MINLENGTH": "Password must be at least 8 characters",
+    "REMEMBER_ME": "Remember me",
+    "FORGOT_PASSWORD": "Forgot password?",
+    "SUBMIT": "Log In",
+    "NO_ACCOUNT": "Don't have an account?",
+    "SIGN_UP": "Sign up"
+  },
+  "REGISTER": {
+    "FULL_NAME": "Full name",
+    "EMAIL": "Email",
+    "PHONE": "Phone",
+    "DNI": "ID",
+    "PASSWORD": "Password",
+    "AGE": "Age",
+    "GENDER": {
+      "LABEL": "Gender",
+      "MALE": "Male",
+      "FEMALE": "Female",
+      "OTHER": "Other"
+    },
+    "TERMS": "Accept terms and conditions",
+    "SUBMIT": "Create account",
+    "HAVE_ACCOUNT": "Already have an account?",
+    "LOGIN_LINK": "Log in"
+  },
+
+  "CONFIG": {
+    "TITLE": "CONFIGURATIONS",
+    "TITLE_NOTIFICATIONS": "Notification Settings",
+    "NOTIFICATIONS": "Enable notifications",
+    "NOTIF.OPTIONS": {
+      "MSG": "Receive message notifications",
+      "UPDATES": "Receive update notifications",
+      "EMAIL": "Receive email notifications",
+      "HIRING": "Receive hiring alerts",
+      "OFFERS": "Receive equipment offers"
+    },
+    "TERMS.TITLE": "Terms and Conditions",
+    "TERMS.TEXT": "By using this platform, you agree to follow the terms and conditions outlined...",
+    "POLICY.TITLE": "Privacy Policy",
+    "POLICY.TEXT": "This policy explains how we collect and manage your personal data...",
+    "INFO": {
+      "TITLE": "Application Info",
+      "NAME": "Name",
+      "VERSION": "Version",
+      "LAST_UPDATED": "Last updated",
+      "DEV": "Developed by",
+      "CONTACT": "Contact",
+      "LICENSE": "License"
+    },
+    "PRIVACY": {
+      "TITLE": "Privacy Settings",
+      "TEXT": "You can control the visibility of your personal information and activity on the platform.",
+      "OPTION1": "Your profile is visible only to team members.",
+      "OPTION2": "Your task history is retained for 6 months.",
+      "OPTION3": "Private activities are not shared without your consent."
+    },
+    "LANGREGION": {
+      "TITLE": "Language & Region",
+      "LANGUAGE": "Preferred Language",
+      "TIMEZONE": "Timezone"
+    },
+    "TERMS": {
+      "TITLE": "Terms and Conditions",
+      "TEXT": "By using this platform, you agree to comply with the terms and conditions outlined in this document. This includes, but is not limited to, appropriate use of services, respect for other users, and adherence to applicable regulations. Any breach may result in account suspension or termination. Users agree to provide accurate information and keep their credentials confidential. The platform reserves the right to modify these terms at any time, notifying changes through official channels. These terms are subject to applicable local laws and may be updated without prior notice."
+    },
+    "POLICY": {
+      "TITLE": "Privacy Policy",
+      "P1": "This privacy policy explains how we collect, use, and protect your personal information when using our services. We are committed to safeguarding your data in accordance with applicable regulations.",
+      "P2": "We collect basic contact information, usage preferences, and technical data to enhance your experience. We will never share your information with third parties without your explicit consent.",
+      "P3": "You can access, correct, or delete your personal information from your account settings at any time."
+    }
+  },
+  "ACCOUNT": {
+    "TITLE": "Account",
+    "EDIT_ALIAS": "Edit alias",
+    "ALIAS_LABEL": "Nickname",
+    "SAVE_ALIAS": "Save alias",
+    "EDIT_IMAGE": "Change image",
+    "DELETE_IMAGE": "Delete image",
+    "SAVE_IMAGE": "Save image",
+    "CANCEL": "Cancel",
+    "MENU": {
+      "SERVICES": "My completed services",
+      "CONTACT": "Contact us",
+      "PROFILE": "My Profile",
+      "PASSWORD": "My Password",
+      "PAYMENTS": "Payment Status"
+    },
+    "CONTACT": {
+      "TITLE": "Contact Us",
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "MESSAGE": "Message",
+      "SUBMIT": "Send Message"
+    },
+    "PROFILE": {
+      "TITLE": "My Profile",
+      "EDITING": "You are editing your profile",
+      "FULL_NAME": "Full Name",
+      "DNI": "DNI",
+      "PHONE": "Phone",
+      "AGE": "Age",
+      "EMAIL": "Email",
+      "GENDER": "Gender",
+      "SAVE": "Save changes",
+      "EDIT": "Edit profile"
+    },
+    "PASSWORD": {
+      "TITLE": "Change Password",
+      "CURRENT": "Current Password",
+      "NEW": "New Password",
+      "CONFIRM": "Confirm New Password",
+      "ERROR_MISMATCH": "Passwords do not match",
+      "SUBMIT": "Change Password"
+    },
+    "PAYMENTS": {
+      "TITLE": "Payment Status",
+      "ID": "Payment #{{id}}",
+      "DATE": "Date",
+      "AMOUNT": "Amount",
+      "STATUS": "Status",
+      "STATUS_PAID": "Paid",
+      "STATUS_PENDING": "Pending"
+    },
+    "SERVICES": {
+      "TITLE": "My Completed Services",
+      "STATUS_LABEL": "Status",
+      "STATUS_COMPLETED": "Completed",
+      "STATUS_PENDING": "Pending",
+      "WORK_INSPECTION": "Work Inspection",
+      "TASK_SUPERVISION": "Task Supervision",
+      "MACHINERY_COORD": "Machinery Coordination"
+    }
+  },
+  "HOME": {
+    "TITLE": "Project Management",
+    "CREATE_PROJECT": "Create New Project",
+    "ONGOING_PROJECTS": "Ongoing Projects",
+    "PROGRESS": "Progress",
+    "END_DATE": "End Date",
+    "VIEW_DETAILS": "View Details",
+    "PENDING_TASKS": "Pending Tasks",
+    "TASK": "Task",
+    "PROJECT": "Project",
+    "DUE_DATE": "Due Date",
+    "STATUS": "Status",
+    "ACTIONS": "Actions",
+    "VIEW_ALL_TASKS": "View all tasks",
+    "STATUS_VALUES": {
+      "PENDING": "Pending",
+      "COMPLETED": "Completed"
+    },
+    "TASKS": {
+      "REVIEW_STRUCTURAL_PLANS": "Review structural plans",
+      "COORDINATE_MATERIAL_DELIVERY": "Coordinate material delivery",
+      "FINAL_INSPECTION": "Final inspection"
+    },
+    "PROJECTS": {
+      "BUILDING_A": "Building A Construction",
+      "CENTRAL_BRIDGE": "Central Bridge",
+      "NORTH_HIGHWAY": "North Highway"
+    }
+  },
+  "TASKS": {
+    "STATUS_UPDATED": "Task '{{task}}' marked as '{{status}}'",
+    "BREADCRUMB": "Tasks",
+    "NOTIFICATION": "Task '{{task}}' has been assigned to {{worker}}.",
+    "SORT_BY": "Sort by",
+    "TASK": "Task",
+    "DUE_DATE": "Due Date",
+    "PRIORITY": "Priority",
+    "STATUS": "Status",
+    "STATUS_VALUES": {
+      "PENDING": "Pending",
+      "IN_PROGRESS": "In Progress",
+      "COMPLETED": "Completed"
+    },
+    "ISSUES": "Issues",
+    "DETAILS": "Details",
+    "FORM": {
+      "TITLE": "Assign New Task",
+      "NAME": "Task Name",
+      "DUE_DATE": "Due Date",
+      "PRIORITY": "Priority (1-5)",
+      "ASSIGNEE": "Assign to Worker",
+      "BUTTONS": {
+        "ASSIGN": "Assign Task"
+      }
+    },
+    "NAMES": {
+      "PREPARE_MIX": "Prepare Mix",
+      "INSTALL_SCAFFOLDING": "Install Scaffolding",
+      "REVIEW_PLANS": "Review Plans"
+    }
+  },
+  "PROBLEMS": {
+    "ADD": "Add problem",
+    "SHOW": "Show problem",
+    "DELETE": "Delete problem"
+  },
+  "TASK_DETAILS": {
+    "BREADCRUMB": "Home > Tasks > Description",
+    "NUMBER": "No.",
+    "TASK": "Task",
+    "DESCRIPTION_TITLE": "Task Description",
+    "START_DATE": "Start Date",
+    "DUE_DATE": "Due Date",
+    "PRIORITY": "Priority",
+    "BACK": "Back",
+    "DESCRIPTIONS": {
+      "PREPARE_MIX": "Mix preparation details",
+      "INSTALL_SCAFFOLDING": "Safe installation of scaffolding",
+      "REVIEW_PLANS": "Review of structural plans"
+    }
+  },
+  "HEADER": {
+    "BRAND": "IronGrid Systems",
+    "HOME": "Home",
+    "TASKS": "Tasks",
+    "PERSONAL": "Workers",
+    "DASHBOARDS": "Dashboards",
+    "SEARCH": "Search",
+    "LOGOUT": "Logout"
+  },
+  "FOOTER": {
+    "RIGHTS": "All rights reserved."
+  },
+  "DASHBOARD": {
+    "TITLE": "Assigned Tasks by Worker"
+  }
+
+}

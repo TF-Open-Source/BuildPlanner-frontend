@@ -1,0 +1,77 @@
+<div class="account-container">
+  <!-- Encabezado -->
+  <div class="header-bar">
+    <h2>{{ 'ACCOUNT.TITLE' | translate }}</h2>
+    <button mat-icon-button class="close-button" [routerLink]="['/home']" [attr.aria-label]="'ACCOUNT.CLOSE' | translate">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="account-content">
+    <!-- Lado izquierdo -->
+    <div class="left">
+      <!-- Imagen editable con lápiz -->
+      <div class="photo-wrapper">
+        <div class="photo">
+          <img [src]="profileImageUrl" alt="{{ 'ACCOUNT.PROFILE_PHOTO' | translate }}" />
+          <button mat-icon-button class="photo-edit-icon" (click)="togglePhotoEdit()">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+        <div class="photo-actions" *ngIf="isEditingPhoto">
+          <input type="file" accept="image/*" #fileInput (change)="onImageSelected($event)" hidden />
+
+          <button mat-stroked-button color="primary" (click)="triggerFileInput()">
+            {{ 'ACCOUNT.CHANGE_PHOTO' | translate }}
+          </button>
+
+          <button mat-stroked-button color="warn" (click)="removeProfileImage()">
+            {{ 'ACCOUNT.REMOVE_PHOTO' | translate }}
+          </button>
+
+          <button mat-flat-button color="primary" (click)="saveProfileImage()" [disabled]="!tempImage">
+            {{ 'ACCOUNT.SAVE_PHOTO' | translate }}
+          </button>
+
+          <button mat-stroked-button (click)="cancelPhotoEdit()">
+            {{ 'ACCOUNT.CANCEL' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Alias editable -->
+      <form [formGroup]="profileForm">
+        <div *ngIf="!isEditingAlias" class="alias-display">
+          <h3>{{ profileForm.get('alias')?.value }}</h3>
+          <button mat-icon-button color="primary" (click)="onEditAlias()" [attr.aria-label]=" 'ACCOUNT.EDIT_ALIAS' | translate ">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+
+        <div *ngIf="isEditingAlias" class="alias-edit">
+          <mat-form-field appearance="fill" class="alias-input">
+            <mat-label>{{ 'ACCOUNT.ALIAS_LABEL' | translate }}</mat-label>
+            <input matInput formControlName="alias" />
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="onSaveAlias()">
+            {{ 'ACCOUNT.SAVE_ALIAS' | translate }}
+          </button>
+        </div>
+      </form>
+
+      <!-- Menú lateral -->
+      <div class="menu">
+        <a routerLink="services" routerLinkActive="active" class="menu-link">{{ 'ACCOUNT.MENU.SERVICES' | translate }}</a>
+        <a routerLink="contact" routerLinkActive="active" class="menu-link">{{ 'ACCOUNT.MENU.CONTACT' | translate }}</a>
+        <a routerLink="profile" routerLinkActive="active" class="menu-link">{{ 'ACCOUNT.MENU.PROFILE' | translate }}</a>
+        <a routerLink="password" routerLinkActive="active" class="menu-link">{{ 'ACCOUNT.MENU.PASSWORD' | translate }}</a>
+        <a routerLink="payments" routerLinkActive="active" class="menu-link">{{ 'ACCOUNT.MENU.PAYMENTS' | translate }}</a>
+      </div>
+    </div>
+
+    <!-- Lado derecho -->
+    <div class="right">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

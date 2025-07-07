@@ -1,0 +1,215 @@
+:root {
+  --bg-color: #FFFFFF;
+  --text-color: #1A1A1A;
+  --red: #C41E3A;
+  --blue: #004E7C;
+  --yellow: #FFD700;
+}
+
+/* Contenedor principal que centra toda la sección de tareas */
+.tasks-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  background-color: var(--bg-color);
+}
+
+/* Título */
+.page-title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-weight: normal;
+  font-size: 36px;
+  color: var(--text-color);
+}
+
+h1 {
+  margin-bottom: 16px;
+  font-weight: normal;
+  font-size: 36px;
+  color: var(--text-color);
+}
+
+/* Formulario */
+.task-form {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin: 0 auto 2rem auto;
+  max-width: 360px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-form h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.6rem;
+  font-size: 18px;
+  border: 1px solid var(--blue);
+  border-radius: 6px;
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+/* Botón del formulario */
+button[type="submit"] {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 18px;
+  background-color: var(--blue) !important;
+  color: black;
+}
+
+/* Estilo para filas de alta prioridad */
+.high-priority {
+  background-color: #fff8dc !important; /* cornsilk */
+  font-weight: bold;
+}
+
+/* Contenedor interno que limita el ancho de la tabla */
+.tasks-content {
+  width: 100%;
+  max-width: 1150px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: var(--bg-color);
+  margin-bottom: 80px;
+}
+
+/* Barra superior con texto "Ordenar por" e íconos */
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+.sort-label {
+  font-size: 24px;
+}
+
+/* Tabla */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+tr:hover {
+  background-color: var(--yellow);
+}
+
+/* Encabezado */
+.mat-header-row {
+  background-color: var(--yellow) !important;
+  color: var(--text-color) !important;
+  font-weight: bold;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mat-header-cell {
+  background-color: var(--yellow) !important;
+  color: var(--text-color) !important;
+  font-size: 24px;
+  border-bottom: 1px solid #ddd;
+}
+
+.mat-header-cell:hover {
+  background-color: var(--yellow) !important;
+  color: var(--text-color) !important;
+}
+
+.mat-row {
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+/* Íconos en botones */
+button mat-icon {
+  color: var(--blue);
+}
+
+/* Select */
+select {
+  font-size: 20px;
+  padding: 4px;
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+/* Ícono al lado del número de prioridad */
+td mat-icon {
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+/* Estilo general para los íconos de prioridad */
+.priority-icon {
+  vertical-align: middle;
+  margin-left: 6px;
+  font-size: 20px;
+}
+
+/* Colores de íconos por nivel de prioridad */
+.priority-1,
+.priority-2 {
+  color: #2e7d32; /* verde */
+}
+
+.priority-3 {
+  color: #f9a825; /* ámbar */
+}
+
+.priority-4,
+.priority-5 {
+  color: var(--red);
+  font-weight: bold;
+}
+
+/* Aplica rojo a todo el grupo si prioridad alta */
+.priority-4,
+.priority-5 {
+  color: #c62828; /* rojo */
+}
+.icono-problema-activo {
+  color: red !important;
+}
+
+.icono-problema-inactivo {
+  color: #555; /* o el gris que prefieras */
+}
+

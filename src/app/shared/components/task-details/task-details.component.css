@@ -1,0 +1,69 @@
+:root {
+  --bg-color: #FFFFFF;
+  --text-color: #1A1A1A;
+  --red: #C41E3A;
+  --blue: #004E7C;
+  --yellow: #FFD700;
+}
+
+/* Contenedor general centrado */
+.task-details-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 40px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Título de la página */
+.page-title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-weight: normal;
+  font-size: 36px;
+  color: var(--text-color);
+}
+
+/* Sección de información con dos columnas */
+.task-info {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  row-gap: 20px;
+  column-gap: 40px;
+  font-size: 20px;
+  color: var(--text-color);
+  width: 100%;
+}
+
+/* Alinea el contenido verticalmente en el centro */
+.task-info div {
+  display: flex;
+  align-items: center;
+}
+
+/* Caja para la descripción */
+.description-content {
+  background-color: #e0e0e0;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  min-height: 100px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón de regresar */
+.back-button {
+  background-color: var(--red);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  margin-top: 30px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-start;
+}

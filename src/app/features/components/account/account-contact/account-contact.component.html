@@ -1,0 +1,25 @@
+<div class="contact-container">
+  <h3>{{ 'ACCOUNT.CONTACT.TITLE' | translate }}</h3>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>{{ 'ACCOUNT.CONTACT.NAME' | translate }}</mat-label>
+      <input matInput formControlName="name" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>{{ 'ACCOUNT.CONTACT.EMAIL' | translate }}</mat-label>
+      <input matInput formControlName="email" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>{{ 'ACCOUNT.CONTACT.MESSAGE' | translate }}</mat-label>
+      <textarea matInput formControlName="message" rows="5" required></textarea>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid">
+        {{ 'ACCOUNT.CONTACT.SUBMIT' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

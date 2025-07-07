@@ -1,0 +1,79 @@
+<div class="container">
+  <!-- Header -->
+  <header class="header">
+    <h1>{{ 'HOME.TITLE' | translate }}</h1>
+    <button class="create-project-btn" mat-raised-button color="primary" (click)="createProject()">
+      {{ 'HOME.CREATE_PROJECT' | translate }}
+    </button>
+  </header>
+
+  <!-- Projects Overview -->
+  <section class="projects-section">
+    <h2>{{ 'HOME.ONGOING_PROJECTS' | translate }}</h2>
+    <div class="projects-grid">
+      <mat-card *ngFor="let project of projects" class="project-card">
+        <mat-card-header>
+          <mat-card-title>{{ 'HOME.PROJECTS.' + project.name | translate }}</mat-card-title>
+          <mat-card-subtitle>{{ 'HOME.PROGRESS' | translate }}: {{ project.progress }}%</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ 'HOME.END_DATE' | translate }}: {{ project.endDate | date:'mediumDate' }}</p>
+          <mat-progress-bar mode="determinate" [value]="project.progress"></mat-progress-bar>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary">{{ 'HOME.VIEW_DETAILS' | translate }}</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Tasks Table -->
+  <section class="tasks-section">
+    <h2>{{ 'HOME.PENDING_TASKS' | translate }}</h2>
+    <table mat-table [dataSource]="tasks" class="mat-elevation-z2">
+      <!-- Task Column -->
+      <ng-container matColumnDef="task">
+        <th mat-header-cell *matHeaderCellDef>{{ 'HOME.TASK' | translate }}</th>
+        <td mat-cell *matCellDef="let task">{{ 'HOME.TASKS.' + task.description | translate }}</td>
+      </ng-container>
+
+      <!-- Project Column -->
+      <ng-container matColumnDef="project">
+        <th mat-header-cell *matHeaderCellDef>{{ 'HOME.PROJECT' | translate }}</th>
+        <td mat-cell *matCellDef="let task">{{ 'HOME.PROJECTS.' + task.project | translate }}</td>
+      </ng-container>
+
+      <!-- Due Date Column -->
+      <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef>{{ 'HOME.DUE_DATE' | translate }}</th>
+        <td mat-cell *matCellDef="let task">{{ task.dueDate | date:'mediumDate' }}</td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>{{ 'HOME.STATUS' | translate }}</th>
+        <td mat-cell *matCellDef="let task">
+          <span [ngClass]="task.status === 'PENDING' ? 'status-pending' : 'status-completed'">
+            {{ 'HOME.STATUS_VALUES.' + task.status | translate }}
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>{{ 'HOME.ACTIONS' | translate }}</th>
+        <td mat-cell *matCellDef="let task">
+          <button mat-icon-button color="primary" (click)="markAsCompleted(task)">
+            <mat-icon>check</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <button mat-raised-button color="primary" (click)="addTask()" class="add-task-btn">
+      {{ 'HOME.VIEW_ALL_TASKS' | translate }}
+    </button>
+  </section>
+</div>

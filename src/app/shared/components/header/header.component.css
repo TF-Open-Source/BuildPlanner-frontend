@@ -1,0 +1,103 @@
+header {
+  background-color: #1f2937;
+  color: #fff;
+  display: flex;
+  width: 100%;
+  height: 4em;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: center;
+}
+
+.nav-menu{
+  display: flex;
+  align-items: center;
+}
+
+.menu{
+  display: flex;
+  list-style: none;
+  margin-left: 4em;
+}
+
+.item-menu{
+  margin: 8px 30px 8px 0;
+  border-radius: 4px;
+}
+
+.item-menu:hover{
+  background-color: #4f6c6e;
+}
+
+.search-box{
+  display: flex;
+  align-items: center;
+  width: 20em;
+  height: 2em;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.search-box:hover{
+  cursor: pointer;
+}
+
+.search-bar{
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  outline: none;
+  font-size: 16px;
+  border: none;
+}
+
+.user-menu-item{
+  display: flex;
+  align-items: center;
+  margin: 8px 20px 8px 0;
+  padding: 10px;
+  border-radius: 100%;
+}
+
+.user-menu-item:hover{
+  cursor: pointer;
+  background-color: #4f6c6e;
+}
+.language-switch button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.language-switch button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.language-switch {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.lang-btn {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.lang-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+  border-color: gray;
+}
+
+.lang-btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+}

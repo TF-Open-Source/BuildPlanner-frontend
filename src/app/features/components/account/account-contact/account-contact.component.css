@@ -1,0 +1,29 @@
+.contact-container {
+  padding: 20px;
+  max-width: 600px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 10px;
+  }
+}
+::ng-deep .mat-mdc-snack-bar-container.custom-snackbar {
+  margin-top: 70px;
+  border-radius: 8px;
+  background-color: #004e7c;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+}

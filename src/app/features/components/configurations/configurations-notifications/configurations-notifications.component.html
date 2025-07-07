@@ -1,0 +1,13 @@
+<div class="configurations-container">
+  <h3>{{ 'CONFIG.TITLE_NOTIFICATIONS' | translate }}</h3>
+
+  <mat-slide-toggle [(ngModel)]="notificationsEnabled" (change)="onChange()">
+    {{ 'CONFIG.NOTIFICATIONS' | translate }}
+  </mat-slide-toggle>
+
+  <div class="checkbox-group" *ngIf="notificationsEnabled">
+    <mat-checkbox *ngFor="let option of notificationOptions" [(ngModel)]="option.checked" (change)="onChange()">
+      {{ option.label | translate }}
+    </mat-checkbox>
+  </div>
+</div>

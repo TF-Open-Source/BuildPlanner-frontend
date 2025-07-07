@@ -1,0 +1,254 @@
+{
+  "INITIAL": {
+    "LOGIN": "Iniciar sesión",
+    "REGISTER": "Regístrate",
+    "TITLE": "Gestión inteligente para tus proyectos",
+    "SUBTITLE": "Optimiza el trabajo de tus obreros, administra tareas y mejora el seguimiento de obras en tiempo real.",
+    "FEATURES": {
+      "PLANNING": "Planificación de actividades por cuadrilla",
+      "DAILY_PROGRESS": "Registro de avances diarios",
+      "ALERTS": "Alertas y seguimiento de tareas"
+    },
+    "START_NOW": "Empieza ahora"
+  },
+  "LOGIN": {
+    "TITLE": "Iniciar Sesión",
+    "EMAIL_LABEL": "Correo Electrónico",
+    "EMAIL_PLACEHOLDER": "tu@correo.com",
+    "EMAIL_REQUIRED": "El correo es obligatorio",
+    "EMAIL_INVALID": "Ingresa un correo válido",
+    "PASSWORD_LABEL": "Contraseña",
+    "PASSWORD_REQUIRED": "La contraseña es obligatoria",
+    "PASSWORD_MINLENGTH": "La contraseña debe tener al menos 8 caracteres",
+    "REMEMBER_ME": "Recuérdame",
+    "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
+    "SUBMIT": "Iniciar Sesión",
+    "NO_ACCOUNT": "¿No tienes una cuenta?",
+    "SIGN_UP": "Regístrate"
+  },
+  "REGISTER": {
+    "FULL_NAME": "Nombre completo",
+    "EMAIL": "Correo electrónico",
+    "PHONE": "Celular",
+    "DNI": "DNI",
+    "PASSWORD": "Contraseña",
+    "AGE": "Edad",
+    "GENDER": {
+      "LABEL": "Sexo",
+      "MALE": "Masculino",
+      "FEMALE": "Femenino",
+      "OTHER": "Otro"
+    },
+    "TERMS": "Aceptar términos y condiciones",
+    "SUBMIT": "Crear cuenta",
+    "HAVE_ACCOUNT": "¿Tiene una cuenta?",
+    "LOGIN_LINK": "Inicia sesión"
+  },
+
+  "CONFIG": {
+    "TITLE": "CONFIGURACIONES",
+    "TITLE_NOTIFICATIONS": "Configuración de Notificaciones",
+    "NOTIFICATIONS": "Activar notificaciones",
+    "NOTIF.OPTIONS": {
+      "MSG": "Recibir notificaciones de mensajes",
+      "UPDATES": "Recibir notificaciones de actualizaciones",
+      "EMAIL": "Recibir notificaciones de correo",
+      "HIRING": "Recibir alertas de selección de personal",
+      "OFFERS": "Recibir ofertas de equipos"
+    },
+    "PRIVACY": {
+      "TITLE": "Configuración de Privacidad",
+      "TEXT": "Puedes controlar la visibilidad de tu información personal y actividad en la plataforma.",
+      "OPTION1": "Tu perfil es visible solo para los miembros del equipo.",
+      "OPTION2": "Tu historial de tareas se conserva por 6 meses.",
+      "OPTION3": "Las actividades privadas no son compartidas sin tu consentimiento."
+    },
+    "LANGREGION": {
+      "TITLE": "Idioma y Región",
+      "LANGUAGE": "Idioma preferido",
+      "TIMEZONE": "Zona horaria"
+    },
+    "TERMS": {
+      "TITLE": "Términos y Condiciones",
+      "TEXT": "Al utilizar esta plataforma, aceptas cumplir con los términos y condiciones establecidos en este documento. Esto incluye, pero no se limita a, el uso adecuado de los servicios, el respeto a otros usuarios y el cumplimiento de las normativas vigentes. Cualquier incumplimiento puede derivar en la suspensión o eliminación de la cuenta. El usuario se compromete a proporcionar información veraz y mantener la confidencialidad de sus credenciales. La plataforma se reserva el derecho de modificar estos términos en cualquier momento, notificando los cambios mediante los canales oficiales. Estos términos están sujetos a las leyes aplicables en el territorio y pueden ser actualizados sin previo aviso."
+    },
+    "POLICY": {
+      "TITLE": "Políticas de Privacidad",
+      "P1": "Esta política de privacidad explica cómo recopilamos, usamos y protegemos tu información personal cuando utilizas nuestros servicios. Nos comprometemos a garantizar la privacidad de tus datos conforme a las regulaciones aplicables.",
+      "P2": "Recopilamos información básica de contacto, preferencias de uso y datos técnicos para mejorar tu experiencia. Nunca compartiremos tu información con terceros sin tu consentimiento explícito.",
+      "P3": "Puedes acceder, corregir o eliminar tu información personal desde la configuración de tu cuenta en cualquier momento."
+    },
+    "INFO": {
+      "TITLE": "Información de la Aplicación",
+      "NAME": "Nombre",
+      "VERSION": "Versión",
+      "LAST_UPDATED": "Última actualización",
+      "DEV": "Desarrollado por",
+      "CONTACT": "Contacto",
+      "LICENSE": "Licencia"
+    }
+  },
+  "ACCOUNT": {
+    "TITLE": "Cuenta",
+    "EDIT_ALIAS": "Editar alias",
+    "ALIAS_LABEL": "Sobrenombre",
+    "SAVE_ALIAS": "Guardar alias",
+    "EDIT_IMAGE": "Cambiar imagen",
+    "DELETE_IMAGE": "Eliminar imagen",
+    "SAVE_IMAGE": "Guardar imagen",
+    "CANCEL": "Cancelar",
+    "MENU": {
+      "SERVICES": "Mis servicios realizados",
+      "CONTACT": "Contáctanos",
+      "PROFILE": "Mi Perfil",
+      "PASSWORD": "Mi contraseña",
+      "PAYMENTS": "Estado de pagos"
+    },
+    "CONTACT": {
+      "TITLE": "Contáctanos",
+      "NAME": "Nombre",
+      "EMAIL": "Correo electrónico",
+      "MESSAGE": "Mensaje",
+      "SUBMIT": "Enviar mensaje"
+    },
+    "PROFILE": {
+      "TITLE": "Mi Perfil",
+      "EDITING": "Estás editando tu perfil",
+      "FULL_NAME": "Nombre completo",
+      "DNI": "DNI",
+      "PHONE": "Celular",
+      "AGE": "Edad",
+      "EMAIL": "Correo electrónico",
+      "GENDER": "Sexo",
+      "SAVE": "Guardar cambios",
+      "EDIT": "Editar perfil"
+    },
+    "PASSWORD": {
+      "TITLE": "Cambiar contraseña",
+      "CURRENT": "Contraseña actual",
+      "NEW": "Nueva contraseña",
+      "CONFIRM": "Confirmar nueva contraseña",
+      "ERROR_MISMATCH": "Las contraseñas no coinciden",
+      "SUBMIT": "Cambiar contraseña"
+    },
+    "PAYMENTS": {
+      "TITLE": "Estado de pagos",
+      "ID": "Pago #{{id}}",
+      "DATE": "Fecha",
+      "AMOUNT": "Monto",
+      "STATUS": "Estado",
+      "STATUS_PAID": "Pagado",
+      "STATUS_PENDING": "Pendiente"
+    },
+    "SERVICES": {
+      "TITLE": "Mis servicios realizados",
+      "STATUS_LABEL": "Estado",
+      "STATUS_COMPLETED": "Completado",
+      "STATUS_PENDING": "Pendiente",
+      "WORK_INSPECTION": "Inspección de obra",
+      "TASK_SUPERVISION": "Supervisión de tareas",
+      "MACHINERY_COORD": "Coordinación de maquinaria"
+    }
+  },
+  "HOME": {
+    "TITLE": "Gestión de Obras",
+    "CREATE_PROJECT": "Crear Nuevo Proyecto",
+    "ONGOING_PROJECTS": "Proyectos en Curso",
+    "PROGRESS": "Progreso",
+    "END_DATE": "Fecha de Finalización",
+    "VIEW_DETAILS": "Ver Detalles",
+    "PENDING_TASKS": "Tareas Pendientes",
+    "TASK": "Tarea",
+    "PROJECT": "Proyecto",
+    "DUE_DATE": "Fecha Límite",
+    "STATUS": "Estado",
+    "ACTIONS": "Acciones",
+    "VIEW_ALL_TASKS": "Ver todas las tareas",
+
+    "STATUS_VALUES": {
+      "PENDING": "Pendiente",
+      "COMPLETED": "Completado"
+    },
+
+    "TASKS": {
+      "REVIEW_STRUCTURAL_PLANS": "Revisar planos estructurales",
+      "COORDINATE_MATERIAL_DELIVERY": "Coordinar entrega de materiales",
+      "FINAL_INSPECTION": "Inspección final"
+    },
+
+    "PROJECTS": {
+      "BUILDING_A": "Construcción Edificio A",
+      "CENTRAL_BRIDGE": "Puente Central",
+      "NORTH_HIGHWAY": "Carretera Norte"
+    }
+  },
+  "TASKS": {
+    "STATUS_UPDATED": "La tarea '{{task}}' fue marcada como '{{status}}'",
+    "BREADCRUMB": "Tareas",
+    "SORT_BY": "Ordenar por",
+    "NOTIFICATION": "Se ha asignado la tarea '{{task}}' a {{worker}}.",
+    "TASK": "Tarea",
+    "DUE_DATE": "Fecha límite",
+    "PRIORITY": "Prioridad",
+    "STATUS": "Estado",
+    "STATUS_VALUES": {
+      "PENDING": "Pendiente",
+      "IN_PROGRESS": "En progreso",
+      "COMPLETED": "Completada"
+    },
+    "PROBLEMS": {
+      "ADD": "Ingresar problema",
+      "SHOW": "Mostrar problema",
+      "DELETE": "Eliminar problema"
+    },
+    "ISSUES": "Problemas",
+    "DETAILS": "Detalles",
+    "FORM": {
+      "TITLE": "Asignar nueva tarea",
+      "NAME": "Nombre de la tarea",
+      "DUE_DATE": "Fecha límite",
+      "PRIORITY": "Prioridad (1-5)",
+      "ASSIGNEE": "Asignar a obrero",
+      "BUTTONS": {
+        "ASSIGN": "Asignar tarea"
+      }
+    },
+    "NAMES": {
+      "PREPARE_MIX": "Preparar mezcla",
+      "INSTALL_SCAFFOLDING": "Instalar andamios",
+      "REVIEW_PLANS": "Revisar planos"
+    }
+  },
+  "TASK_DETAILS": {
+    "BREADCRUMB": "Inicio > Tareas > Descripción",
+    "NUMBER": "N°",
+    "TASK": "Tarea",
+    "DESCRIPTION_TITLE": "Descripción de tarea",
+    "START_DATE": "Fecha de inicio",
+    "DUE_DATE": "Fecha de fin",
+    "PRIORITY": "Prioridad",
+    "BACK": "Regresar",
+    "DESCRIPTIONS": {
+      "PREPARE_MIX": "Descripción de la mezcla",
+      "INSTALL_SCAFFOLDING": "Instalación segura de andamios",
+      "REVIEW_PLANS": "Revisión de planos estructurales"
+    }
+  },
+  "HEADER": {
+    "BRAND": "IronGrid Systems",
+    "HOME": "Inicio",
+    "TASKS": "Tareas",
+    "PERSONAL": "Trabajadores",
+    "DASHBOARDS": "Tableros",
+    "SEARCH": "Buscar",
+    "LOGOUT": "Cerrar sesión"
+  },
+  "FOOTER": {
+    "RIGHTS": "Todos los derechos reservados."
+  },
+
+  "DASHBOARD": {
+    "TITLE": "Tareas asignadas por obrero"
+  }
+
+}

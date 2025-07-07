@@ -1,0 +1,34 @@
+.services-container {
+  padding: 20px;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.service-card {
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.status-completed {
+  color: #2e7d32; /* verde */
+}
+
+.status-pending {
+  color: #c62828; /* rojo */
+}
+
+@media (max-width: 768px) {
+  .card-list {
+    gap: 10px;
+  }
+
+  .service-card {
+    font-size: 14px;
+  }
+}

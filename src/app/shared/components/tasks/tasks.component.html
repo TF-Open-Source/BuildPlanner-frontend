@@ -1,0 +1,157 @@
+<section class="tasks-container">
+  <h1 class="page-title">{{ 'TASKS.BREADCRUMB' | translate }}</h1>
+
+  <!-- Formulario de nueva tarea -->
+  <div class="task-form">
+    <h2>{{ 'TASKS.FORM.TITLE' | translate }}</h2>
+
+    <form (ngSubmit)="asignarTarea()">
+      <div class="form-group">
+        <label>{{ 'TASKS.FORM.NAME' | translate }}</label>
+        <input type="text" [(ngModel)]="nuevaTarea.nombre" name="nombre" required />
+      </div>
+
+      <div class="form-group">
+        <label>{{ 'TASKS.FORM.DUE_DATE' | translate }}</label>
+        <input type="date" [(ngModel)]="nuevaTarea.fechaLimite" name="fechaLimite" required />
+      </div>
+
+      <div class="form-group">
+        <label>{{ 'TASKS.FORM.PRIORITY' | translate }}</label>
+        <input type="number" min="1" max="5" [(ngModel)]="nuevaTarea.prioridad" name="prioridad" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ 'TASKS.FORM.ASSIGNEE' | translate }}</label>
+        <select [(ngModel)]="nuevaTarea.assignedTo" name="assignedTo" required>
+          <option *ngFor="let obrero of obreros" [ngValue]="obrero">
+            {{ obrero.name }}
+          </option>
+        </select>
+      </div>
+
+      <button mat-flat-button color="primary" type="submit">
+        {{ 'TASKS.FORM.BUTTONS.ASSIGN' | translate }}
+      </button>
+    </form>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="tasks-content">
+    <div class="toolbar">
+      <span class="sort-label">{{ 'TASKS.SORT_BY' | translate }}</span>
+      <button mat-icon-button (click)="ordenarPorFecha()" aria-label="Ordenar por fecha">
+        <mat-icon>calendar_today</mat-icon>
+      </button>
+      <button mat-icon-button (click)="ordenarPorPrioridad()" aria-label="Ordenar por prioridad">
+        <mat-icon>priority_high</mat-icon>
+      </button>
+    </div>
+
+    <table mat-table [dataSource]="tareas" class="mat-elevation-z1">
+
+      <!-- N° -->
+      <ng-container matColumnDef="numero">
+        <th mat-header-cell *matHeaderCellDef> N° </th>
+        <td mat-cell *matCellDef="let tarea; let i = index">
+          {{ i + 1 + (paginator?.pageIndex ?? 0) * (paginator?.pageSize ?? 5) }}
+        </td>
+      </ng-container>
+
+      <!-- Tarea -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.TASK' | translate }}</th>
+        <td mat-cell *matCellDef="let tarea">
+          {{ traducirNombreTarea(tarea.nombre) }}
+        </td>
+      </ng-container>
+
+      <!-- Fecha Límite -->
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.DUE_DATE' | translate }}</th>
+        <td mat-cell *matCellDef="let tarea">{{ tarea.fechaLimite }}</td>
+      </ng-container>
+
+      <!-- Prioridad -->
+      <ng-container matColumnDef="prioridad">
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.PRIORITY' | translate }}</th>
+        <td mat-cell *matCellDef="let tarea">
+          <span [ngClass]="[
+            'priority-' + tarea.prioridad,
+            esPrioridadAlta(tarea.prioridad) ? 'prioridad-alta' : ''
+          ]">
+            <select [ngModel]="tarea.prioridad"
+                    (ngModelChange)="tarea.prioridad = +$event; cambiarPrioridad(tarea)"
+                    [name]="'prioridad_' + tarea.id">
+              <option *ngFor="let p of [1, 2, 3, 4, 5]" [ngValue]="p">{{ p }}</option>
+            </select>
+
+            <mat-icon [ngClass]="'priority-' + tarea.prioridad" aria-hidden="true">
+              {{ getPrioridadIcon(tarea.prioridad) }}
+            </mat-icon>
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Estado -->
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.STATUS' | translate }}</th>
+        <td mat-cell *matCellDef="let tarea">
+          <select [(ngModel)]="tarea.estado"
+                  (change)="cambiarEstado(tarea)"
+                  [name]="'estado_' + tarea.id">
+            <option value="PENDING">{{ 'TASKS.STATUS_VALUES.PENDING' | translate }}</option>
+            <option value="IN_PROGRESS">{{ 'TASKS.STATUS_VALUES.IN_PROGRESS' | translate }}</option>
+            <option value="COMPLETED">{{ 'TASKS.STATUS_VALUES.COMPLETED' | translate }}</option>
+          </select>
+        </td>
+      </ng-container>
+
+      <!-- Problemas -->
+      <!-- Problemas -->
+      <ng-container matColumnDef="problemas">
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.ISSUES' | translate }}</th>
+        <td mat-cell *matCellDef="let tarea">
+          <button mat-icon-button [matMenuTriggerFor]="menuProblemas" (click)="tareaSeleccionada = tarea" aria-label="Gestionar problemas">
+            <mat-icon [ngClass]="tarea.hasIssue ? 'icono-problema-activo' : 'icono-problema-inactivo'">
+              {{ tarea.hasIssue ? 'report' : 'report_problem' }}
+            </mat-icon>
+
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Descripción -->
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef>{{ 'TASKS.DETAILS' | translate }}</th>
+        <td mat-cell *matCellDef="let tarea">
+          <a mat-icon-button [routerLink]="['/task-details', tarea.id]" aria-label="ver detalle">
+            <mat-icon>search</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+    </table>
+
+    <!-- Menú de problemas (único y reutilizable) -->
+    <mat-menu #menuProblemas="matMenu">
+      <button mat-menu-item (click)="ingresarProblema(tareaSeleccionada)">
+        <mat-icon>add_circle</mat-icon>
+        <span>{{ 'TASKS.PROBLEMS.ADD' | translate }}</span>
+      </button>
+      <button mat-menu-item (click)="mostrarProblema(tareaSeleccionada)">
+        <mat-icon>visibility</mat-icon>
+        <span>{{ 'TASKS.PROBLEMS.SHOW' | translate }}</span>
+      </button>
+      <button mat-menu-item (click)="eliminarProblema(tareaSeleccionada)">
+        <mat-icon>delete</mat-icon>
+        <span>{{ 'TASKS.PROBLEMS.DELETE' | translate }}</span>
+      </button>
+    </mat-menu>
+
+    <!-- Paginador -->
+    <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+  </div>
+</section>

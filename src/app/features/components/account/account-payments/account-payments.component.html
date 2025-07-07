@@ -1,0 +1,26 @@
+<h3>{{ 'ACCOUNT.PAYMENTS.TITLE' | translate }}</h3>
+
+<div class="payments-container">
+  <mat-card *ngFor="let payment of payments" class="payment-card">
+    <mat-card-title>
+      {{ 'ACCOUNT.PAYMENTS.ID' | translate:{ id: payment.id } }}
+    </mat-card-title>
+    <mat-card-content>
+      <p><strong>{{ 'ACCOUNT.PAYMENTS.DATE' | translate }}:</strong> {{ payment.date }}</p>
+      <p><strong>{{ 'ACCOUNT.PAYMENTS.AMOUNT' | translate }}:</strong> {{ payment.amount }}</p>
+      <p>
+        <strong>{{ 'ACCOUNT.PAYMENTS.STATUS' | translate }}:</strong>
+        <span [ngClass]="{
+          'status-paid': payment.status === 'Pagado' || payment.status === 'Paid',
+          'status-pending': payment.status === 'Pendiente' || payment.status === 'Pending'
+        }">
+          {{
+            payment.status === 'Pagado' || payment.status === 'Paid'
+              ? ('ACCOUNT.PAYMENTS.STATUS_PAID' | translate)
+              : ('ACCOUNT.PAYMENTS.STATUS_PENDING' | translate)
+          }}
+        </span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
