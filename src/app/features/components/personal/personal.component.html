@@ -1,3 +1,34 @@
+<!-- Botón para abrir el formulario -->
+<div class="register-button">
+  <button (click)="openForm()">Registrar trabajador</button>
+</div>
+
+
+<!-- Formulario de registro -->
+<div class="modal-backdrop" *ngIf="showForm">
+  <div class="modal">
+    <h3>Registrar trabajador</h3>
+    <label>Nombre:</label>
+    <input [(ngModel)]="newWorker.name" />
+
+    <label>Edad:</label>
+    <input type="number" [(ngModel)]="newWorker.age" />
+
+    <label>DNI:</label>
+    <input [(ngModel)]="newWorker.dni" />
+
+    <label>Estatus:</label>
+    <select [(ngModel)]="newWorker.status">
+      <option value="Disponible">Disponible</option>
+      <option value="Ocupado">Ocupado</option>
+    </select>
+
+    <br />
+    <button class="send" (click)="saveWorker()">Guardar</button>
+    <button class="close" (click)="closeForm()">Cancelar</button>
+  </div>
+</div>
+
 <div class="grid">
   <div class="worker-card" *ngFor="let worker of workers">
     <div class="circle-avatar"></div>
@@ -10,11 +41,39 @@
 <div class="modal-backdrop" *ngIf="selectedWorker">
   <div class="modal">
     <h3>Detalles del trabajador</h3>
-    <p><strong>Nombre:</strong> {{ selectedWorker.name }}</p>
-    <p><strong>Edad:</strong> {{ selectedWorker.age }}</p>
-    <p><strong>DNI:</strong> {{ selectedWorker.dni }}</p>
-    <p><strong>Estatus:</strong> {{ selectedWorker.status }}</p>
-    <button class="send" (click)="sendMessage()">Enviar mensaje</button>
-    <button class="close" (click)="closeModal()">Cerrar</button>
+
+    <!-- Modo visual -->
+    <div *ngIf="!editMode">
+      <p><strong>Nombre:</strong> {{ selectedWorker.name }}</p>
+      <p><strong>Edad:</strong> {{ selectedWorker.age }}</p>
+      <p><strong>DNI:</strong> {{ selectedWorker.dni }}</p>
+      <p><strong>Estatus:</strong> {{ selectedWorker.status }}</p>
+      <button class="send" (click)="sendMessage()">Enviar mensaje</button>
+      <button (click)="enableEdit()">Editar</button>
+      <button class="delete" (click)="deleteWorker()">Eliminar</button>
+      <button class="close" (click)="closeModal()">Cerrar</button>
+    </div>
+
+    <!-- Modo edición -->
+    <div *ngIf="editMode">
+      <label>Nombre:</label>
+      <input [(ngModel)]="selectedWorker.name" />
+
+      <label>Edad:</label>
+      <input type="number" [(ngModel)]="selectedWorker.age" />
+
+      <label>DNI:</label>
+      <input [(ngModel)]="selectedWorker.dni" />
+
+      <label>Estatus:</label>
+      <select [(ngModel)]="selectedWorker.status">
+        <option value="Disponible">Disponible</option>
+        <option value="Ocupado">Ocupado</option>
+      </select>
+
+      <button class="send" (click)="saveEdit()">Guardar cambios</button>
+      <button class="close" (click)="editMode = false">Cancelar</button>
+    </div>
   </div>
 </div>
+
