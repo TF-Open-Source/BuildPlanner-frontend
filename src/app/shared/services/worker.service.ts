@@ -14,7 +14,7 @@ export interface ConstructionWorker {
   providedIn: 'root'
 })
 export class WorkerService {
-  private apiUrl = 'http://localhost:8081/api/workers'; // Ajusta el puerto si es diferente
+  private apiUrl = 'http://localhost:8080/api/workers'; // Ajusta el puerto si es diferente
 
   constructor(private http: HttpClient) {}
 
